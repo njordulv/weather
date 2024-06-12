@@ -13,8 +13,11 @@ ul {
   padding: 0;
 }
 
-.App {
-  text-align: center;
+ul li {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
 }
 
 .App-header {

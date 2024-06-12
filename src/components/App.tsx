@@ -11,7 +11,7 @@ function App() {
   const [isMetric, setIsMetric] = useState(true)
 
   const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${API_KEY}${
-    isMetric ? '&units=metric' : ''
+    isMetric ? '&units=metric' : '&units=imperial'
   }`
   const { data, isLoading, isError, errorMessage } = useWeather({ endpoint })
 
@@ -32,7 +32,7 @@ function App() {
           setSearchCity={setSearchCity}
           setDefaultCity={setDefaultCity}
         />
-        <WeatherData data={data} />
+        <WeatherData data={data} isMetric={isMetric} />
       </header>
     </div>
   )
