@@ -1,28 +1,24 @@
-interface SearchProps {
-  setCity: (value: string) => void
-  searchedCity: string
-  setSearchedCity: (value: string) => void
-}
+import { SearchProps } from '../interfaces'
 
 export const SearchForm = ({
-  searchedCity,
-  setSearchedCity,
-  setCity,
+  searchCity,
+  setSearchCity,
+  setDefaultCity,
 }: SearchProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setCity(searchedCity)
+    setDefaultCity(searchCity)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchedCity(e.target.value)
+    setSearchCity(e.target.value)
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={searchedCity}
+        value={searchCity}
         onChange={handleChange}
         placeholder="Enter city name"
       />

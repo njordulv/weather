@@ -1,4 +1,6 @@
-export const WeatherData = ({ data }: any) => {
+import { WeatherDataProps } from '../interfaces'
+
+export const WeatherData = ({ data }: WeatherDataProps) => {
   if (!data) return null
 
   return (

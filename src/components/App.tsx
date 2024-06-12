@@ -6,11 +6,11 @@ import { WeatherData } from './WeatherData'
 const API_KEY = process.env.REACT_APP_API_KEY
 
 function App() {
-  const [searchedCity, setSearchedCity] = useState('')
-  const [city, setCity] = useState('Kiev')
+  const [defaultCity, setDefaultCity] = useState('Kiev')
+  const [searchCity, setSearchCity] = useState('')
   const [isMetric, setIsMetric] = useState(true)
 
-  const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}${
+  const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${API_KEY}${
     isMetric ? '&units=metric' : ''
   }`
   const { data, isLoading, isError, errorMessage } = useWeather({ endpoint })
@@ -28,9 +28,9 @@ function App() {
           {isMetric ? 'Metric' : 'Imperial'}
         </button>
         <SearchForm
-          searchedCity={searchedCity}
-          setSearchedCity={setSearchedCity}
-          setCity={setCity}
+          searchCity={searchCity}
+          setSearchCity={setSearchCity}
+          setDefaultCity={setDefaultCity}
         />
         <WeatherData data={data} />
       </header>
