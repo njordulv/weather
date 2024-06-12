@@ -1,4 +1,5 @@
 import { WeatherDataProps } from '../interfaces'
+import { getFormattedTime } from '../utils/functions'
 
 export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
   if (!data) return null
@@ -34,7 +35,9 @@ export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
         <li>Humidity: {data.main.humidity} %</li>
         <li>Wind: {wind}m/s WSW</li>
         <li>Visibility: {visibility}km</li>
-        <li></li>
+        <li>Latest weather update: {getFormattedTime(data.dt)}</li>
+        <li>Sunrise: {getFormattedTime(data.sys.sunrise)}</li>
+        <li>Sunset: {getFormattedTime(data.sys.sunset)}</li>
       </ul>
     </>
   )
