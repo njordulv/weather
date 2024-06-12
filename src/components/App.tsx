@@ -1,19 +1,22 @@
 import { useState } from 'react'
 import { useWeather } from '../hooks/useWeather'
-import './App.css'
+import { SearchForm } from './SearchForm'
+import { WeatherData } from './WeatherData'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
 function App() {
   const [searchedCity, setSearchedCity] = useState('')
   const [city, setCity] = useState('Kiev')
-  const { data, isLoading, isError, errorMessage } = useWeather({
-    endpoint: `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`,
-  })
+  const [isMetric, setIsMetric] = useState(true)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setCity(searchedCity)
+  const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}${
+    isMetric ? '&units=metric' : ''
+  }`
+  const { data, isLoading, isError, errorMessage } = useWeather({ endpoint })
+
+  const toggleMetric = () => {
+    setIsMetric(!isMetric)
   }
 
   return (
@@ -21,17 +24,15 @@ function App() {
       <header className="App-header">
         {isLoading && <p>Loading</p>}
         {isError && <p>{errorMessage}</p>}
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={searchedCity}
-            onChange={(e) => setSearchedCity(e.target.value)}
-            placeholder="Enter city name"
-          />
-          <button type="submit">Submit</button>
-        </form>
-        {data && <p>{data.name}</p>}
-        {data && <p>{data.weather[0].description}</p>}
+        <button onClick={toggleMetric}>
+          {isMetric ? 'Metric' : 'Imperial'}
+        </button>
+        <SearchForm
+          searchedCity={searchedCity}
+          setSearchedCity={setSearchedCity}
+          setCity={setCity}
+        />
+        <WeatherData data={data} />
       </header>
     </div>
   )
