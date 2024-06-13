@@ -1,5 +1,6 @@
 import { WeatherDataProps } from '../interfaces'
 import { getFormattedTime } from '../utils/functions'
+import { WindSpeed } from './WindSpeed'
 
 export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
   if (!data) return null
@@ -33,7 +34,9 @@ export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
         <li>Description: {data.weather[0].description}</li>
         <li>Pressure: {data.main.pressure} hPa</li>
         <li>Humidity: {data.main.humidity} %</li>
-        <li>Wind: {wind}m/s WSW</li>
+        <li>
+          Wind: {wind}m/s WSW. <WindSpeed data={data} />
+        </li>
         <li>Visibility: {visibility}km</li>
         <li>Latest weather update: {getFormattedTime(data.dt)}</li>
         <li>Sunrise: {getFormattedTime(data.sys.sunrise)}</li>

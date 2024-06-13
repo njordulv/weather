@@ -42,7 +42,7 @@ export interface WeatherData {
 
 export interface WeatherDataProps {
   data: WeatherData | null
-  isMetric: boolean
+  isMetric?: boolean
 }
 
 export interface SearchProps {
