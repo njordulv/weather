@@ -1,5 +1,5 @@
 import { WeatherDataProps } from '../interfaces'
-import { getFormattedTime } from '../utils/functions'
+import { getFormattedTime } from '../utils'
 import { WindSpeed } from './WindSpeed'
 
 export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {

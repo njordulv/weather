@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useWeather } from '../hooks/useWeather'
 import { SearchForm } from './SearchForm'
 import { WeatherData } from './WeatherData'
+import { Forecast } from './Forecast'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -33,6 +34,7 @@ function App() {
           setDefaultCity={setDefaultCity}
         />
         <WeatherData data={data} isMetric={isMetric} />
+        <Forecast defaultCity={defaultCity} isMetric={isMetric} />
       </header>
     </div>
   )

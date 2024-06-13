@@ -8,6 +8,10 @@ code {
     monospace;
 }
 
+b {
+  font-weight: 600;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -20,6 +24,10 @@ ul li {
   align-items: center;
 }
 
+.App {
+  padding: 50px 0;
+}
+
 .App-header {
   background-color: #fff;
   min-height: 100vh;
@@ -30,4 +38,21 @@ ul li {
   font-size: calc(10px + 1.5vmin);
   color: #222;
   text-transform: capitalize;
+}
+
+.chartX {
+  font-size: 11px;
+}
+
+.chartTooltip {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
+  min-width: 120px;
 }
