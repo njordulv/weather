@@ -11,11 +11,12 @@ export function formatDateTime(dateTime: string): string {
   const date = new Date(dateTime)
 
   const options: Intl.DateTimeFormatOptions = {
-    day: 'numeric',
-    month: 'long',
-    // hour: 'numeric',
-    // minute: 'numeric',
-    // hour12: true,
+    // day: 'numeric',
+    // month: 'short',
+    weekday: 'short',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: false,
   }
 
   const formattedDate = date.toLocaleString('en-US', options)
