@@ -1,4 +1,4 @@
-import { SearchProps } from '../interfaces'
+import { SearchProps } from '@/interfaces'
 
 export const SearchForm = ({
   searchCity,

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: 'Baloo 2', sans-serif;
@@ -25,10 +29,6 @@ ul li {
 }
 
 .App {
-  padding: 50px 0;
-}
-
-.App-header {
   background-color: #fff;
   min-height: 100vh;
   display: flex;

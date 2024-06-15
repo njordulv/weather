@@ -1,3 +1,9 @@
+import { MotionProps } from 'framer-motion'
+
+export type BlockProps = {
+  className?: string
+} & MotionProps
+
 export interface WeatherData {
   coord: {
     lon: number
