@@ -1,3 +1,4 @@
+import { Block } from '@/components/Block'
 import {
   Area,
   XAxis,
@@ -65,10 +66,16 @@ export const Forecast = ({ defaultCity, isMetric }: DefaultProps) => {
   }
 
   return (
-    <>
+    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col gap-5 justify-center">
       {isLoading && <p>Loading</p>}
       {isError && <p>{errorMessage}</p>}
-      <ComposedChart width={500} height={300} data={dataPoints}>
+      <h3>5-day Forecast</h3>
+      <ComposedChart
+        width={500}
+        height={300}
+        data={dataPoints}
+        margin={{ top: 5, right: 30, bottom: 5, left: -10 }}
+      >
         <defs>
           <linearGradient id="line1" x1="0" y1="0" x2="0" y2="1">
             <stop offset="40%" stopColor="#FFB686" stopOpacity={1} />
@@ -116,6 +123,6 @@ export const Forecast = ({ defaultCity, isMetric }: DefaultProps) => {
           animationEasing="ease-in-out"
         />
       </ComposedChart>
-    </>
+    </Block>
   )
 }

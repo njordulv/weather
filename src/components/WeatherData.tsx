@@ -1,5 +1,6 @@
 import { WeatherDataProps } from '@/interfaces'
 import { getFormattedTime } from '@/utils'
+import { Block } from '@/components/Block'
 import { WindSpeed } from '@/components/WindSpeed'
 
 export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
@@ -13,7 +14,7 @@ export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
   const visibility = (data.visibility / 1000).toFixed(1)
 
   return (
-    <>
+    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col justify-center">
       <h2>
         {data.name}, {data.sys.country}
       </h2>
@@ -42,7 +43,7 @@ export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
         <li>Sunrise: {getFormattedTime(data.sys.sunrise)}</li>
         <li>Sunset: {getFormattedTime(data.sys.sunset)}</li>
       </ul>
-    </>
+    </Block>
   )
 }
 
