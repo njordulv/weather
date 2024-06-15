@@ -1,6 +1,6 @@
-import { WeatherDataProps } from '../interfaces'
-import { getFormattedTime } from '../utils'
-import { WindSpeed } from './WindSpeed'
+import { WeatherDataProps } from '@/interfaces'
+import { getFormattedTime } from '@/utils'
+import { WindSpeed } from '@/components/WindSpeed'
 
 export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
   if (!data) return null

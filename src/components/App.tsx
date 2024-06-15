@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { useWeather } from '../hooks/useWeather'
-import { WeatherData } from './WeatherData'
-import { Forecast } from './Forecast'
 import { m, LazyMotion, domAnimation } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
 import { BlockProps } from '@/interfaces'
+import { useWeather } from '@/hooks/useWeather'
 import { SearchForm } from '@/components/SearchForm'
+import { WeatherData } from '@/components/WeatherData'
+import { Forecast } from '@/components/Forecast'
 
 export const Block = ({ className, ...rest }: BlockProps) => {
   return (

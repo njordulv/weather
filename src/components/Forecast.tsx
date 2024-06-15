@@ -7,9 +7,9 @@ import {
   TooltipProps,
   ComposedChart,
 } from 'recharts'
-import { useWeather } from '../hooks/useWeather'
-import { DefaultProps } from '../interfaces'
-import { formatDateTime } from '../utils'
+import { useWeather } from '@/hooks/useWeather'
+import { DefaultProps } from '@/interfaces'
+import { formatDateTime } from '@/utils'
 
 const API_KEY = process.env.REACT_APP_API_KEY
 

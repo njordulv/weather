@@ -1,4 +1,4 @@
-import { WeatherDataProps } from '../interfaces'
+import { WeatherDataProps } from '@/interfaces'
 
 export const WindSpeed = ({ data }: WeatherDataProps) => {
   if (!data || !data.wind || !data.wind.speed) return null
