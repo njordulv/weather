@@ -1,11 +1,13 @@
 import { Block } from '@/components/Block'
+import { useWeatherStore } from '@/store/useWeatherStore'
 import { SearchProps } from '@/interfaces'
 
-export const SearchForm = ({
+export const SearchForm: React.FC<SearchProps> = ({
   searchCity,
   setSearchCity,
-  setDefaultCity,
-}: SearchProps) => {
+}) => {
+  const setDefaultCity = useWeatherStore((state) => state.setDefaultCity)
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setDefaultCity(searchCity)

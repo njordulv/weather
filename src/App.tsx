@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { m, LazyMotion, domAnimation } from 'framer-motion'
 import { useWeather } from '@/hooks/useWeather'
+import { useWeatherStore } from '@/store/useWeatherStore'
 import { SearchForm } from '@/components/SearchForm'
 import { WeatherData } from '@/components/WeatherData'
 import { Forecast } from '@/components/Forecast'
@@ -9,7 +10,7 @@ import { Metric } from '@/components/Metric'
 export const App = () => {
   const API_KEY = process.env.REACT_APP_API_KEY
 
-  const [defaultCity, setDefaultCity] = useState('Kiev')
+  const defaultCity = useWeatherStore((state) => state.defaultCity)
   const [searchCity, setSearchCity] = useState('')
   const [isMetric, setIsMetric] = useState(true)
 
@@ -36,11 +37,7 @@ export const App = () => {
           >
             {isLoading && <p>Loading</p>}
             {isError && <p>{errorMessage}</p>}
-            <SearchForm
-              searchCity={searchCity}
-              setSearchCity={setSearchCity}
-              setDefaultCity={setDefaultCity}
-            />
+            <SearchForm searchCity={searchCity} setSearchCity={setSearchCity} />
             <Metric isMetric={isMetric} toggleMetric={toggleMetric} />
             <WeatherData data={data} isMetric={isMetric} />
             <Forecast defaultCity={defaultCity} isMetric={isMetric} />

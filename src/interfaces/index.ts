@@ -57,7 +57,6 @@ export interface DefaultProps {
 }
 
 export interface SearchProps {
-  setDefaultCity: (value: string) => void
   searchCity: string
   setSearchCity: (value: string) => void
 }
