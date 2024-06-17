@@ -9,7 +9,7 @@ import {
   ComposedChart,
 } from 'recharts'
 import { useWeather } from '@/hooks/useWeather'
-import { DefaultProps } from '@/interfaces'
+import { useWeatherStore } from '@/store/useWeatherStore'
 import { formatDateTime } from '@/utils'
 
 const API_KEY = process.env.REACT_APP_API_KEY
@@ -19,7 +19,10 @@ interface CustomTooltipProps extends TooltipProps<string, string> {
   payload?: any[]
 }
 
-export const Forecast = ({ defaultCity, isMetric }: DefaultProps) => {
+export const Forecast = () => {
+  const defaultCity = useWeatherStore((state) => state.defaultCity)
+  const isMetric = useWeatherStore((state) => state.isMetric)
+
   const endpoint = `https://api.openweathermap.org/data/2.5/forecast?q=${defaultCity}&appid=${API_KEY}${
     isMetric ? '&units=metric' : '&units=imperial'
   }`

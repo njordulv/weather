@@ -48,15 +48,4 @@ export interface WeatherData {
 
 export interface WeatherDataProps {
   data: WeatherData | null
-  isMetric?: boolean
-}
-
-export interface DefaultProps {
-  defaultCity: string
-  isMetric?: boolean
-}
-
-export interface SearchProps {
-  searchCity: string
-  setSearchCity: (value: string) => void
 }

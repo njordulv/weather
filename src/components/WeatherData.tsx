@@ -1,9 +1,12 @@
+import { useWeatherStore } from '@/store/useWeatherStore'
 import { WeatherDataProps } from '@/interfaces'
 import { getFormattedTime } from '@/utils'
 import { Block } from '@/components/Block'
 import { WindSpeed } from '@/components/WindSpeed'
 
-export const WeatherData = ({ data, isMetric }: WeatherDataProps) => {
+export const WeatherData = ({ data }: WeatherDataProps) => {
+  const isMetric = useWeatherStore((state) => state.isMetric)
+
   if (!data) return null
 
   const temp1 = Math.ceil(data.main.temp)
