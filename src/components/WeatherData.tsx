@@ -1,8 +1,8 @@
 import { useWeatherStore } from '@/store/useWeatherStore'
 import { WeatherDataProps } from '@/interfaces'
 import { getFormattedTime } from '@/utils'
-import { Block } from '@/components/Block'
-import { WindSpeed } from '@/components/WindSpeed'
+import { Block } from '@/components/ui/Block'
+import { WindSpeed } from '@/components/ui/WindSpeed'
 
 export const WeatherData = ({ data }: WeatherDataProps) => {
   const isMetric = useWeatherStore((state) => state.isMetric)
@@ -17,7 +17,7 @@ export const WeatherData = ({ data }: WeatherDataProps) => {
   const visibility = (data.visibility / 1000).toFixed(1)
 
   return (
-    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col justify-center">
+    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col gap-5">
       <h2>
         {data.name}, {data.sys.country}
       </h2>

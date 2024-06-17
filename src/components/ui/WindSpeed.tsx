@@ -1,6 +1,6 @@
 import { WeatherDataProps } from '@/interfaces'
 
-export const WindSpeed = ({ data }: WeatherDataProps) => {
+export const WindSpeed: React.FC<WeatherDataProps> = ({ data }) => {
   if (!data || !data.wind || !data.wind.speed) return null
 
   let value = data.wind.speed

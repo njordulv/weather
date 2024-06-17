@@ -1,18 +1,18 @@
-import { Block } from '@/components/Block'
+import { Block } from '@/components/ui/Block'
 import { useWeatherStore } from '@/store/useWeatherStore'
 
 export const SearchForm = () => {
-  const setDefaultCity = useWeatherStore((state) => state.setDefaultCity)
   const searchCity = useWeatherStore((state) => state.searchCity)
-  const setSearchCity = useWeatherStore((state) => state.setSearchCity)
+  const updateSearchCity = useWeatherStore((state) => state.updateSearchCity)
+  const updateDefaultCity = useWeatherStore((state) => state.updateDefaultCity)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setDefaultCity(searchCity)
+    updateDefaultCity(searchCity)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchCity(e.target.value)
+    updateSearchCity(e.target.value)
   }
 
   return (

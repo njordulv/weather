@@ -2,7 +2,7 @@ import { m } from 'framer-motion'
 import { twMerge } from 'tailwind-merge'
 import { BlockProps } from '@/interfaces'
 
-export const Block = ({ className, ...rest }: BlockProps) => {
+export const Block: React.FC<BlockProps> = ({ className, ...rest }) => {
   return (
     <m.div
       variants={{

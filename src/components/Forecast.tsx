@@ -1,4 +1,4 @@
-import { Block } from '@/components/Block'
+import { Block } from '@/components/ui/Block'
 import {
   Area,
   XAxis,
@@ -19,7 +19,7 @@ interface CustomTooltipProps extends TooltipProps<string, string> {
   payload?: any[]
 }
 
-export const Forecast = () => {
+export const Forecast: React.FC = () => {
   const defaultCity = useWeatherStore((state) => state.defaultCity)
   const isMetric = useWeatherStore((state) => state.isMetric)
 
@@ -51,15 +51,15 @@ export const Forecast = () => {
           </div>
           {payload[2] && (
             <div>
-              Humidity: <b>{`${payload[2].value} %`}</b>
+              Humidity: <b>{`${payload[0].value} %`}</b>
             </div>
           )}
           <div>
             Temperature:{' '}
-            <b>{`${payload[0].value} ${isMetric ? '°C' : '°F'}`}</b>
+            <b>{`${payload[1].value} ${isMetric ? '°C' : '°F'}`}</b>
           </div>
           <div>
-            Wind: <b>{`${payload[1].value} m/s`}</b>
+            Wind: <b>{`${payload[2].value} m/s`}</b>
           </div>
         </div>
       )
@@ -69,7 +69,7 @@ export const Forecast = () => {
   }
 
   return (
-    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col gap-5 justify-center">
+    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col gap-5">
       {isLoading && <p>Loading</p>}
       {isError && <p>{errorMessage}</p>}
       <h3>5-day Forecast</h3>
@@ -77,7 +77,7 @@ export const Forecast = () => {
         width={500}
         height={300}
         data={dataPoints}
-        margin={{ top: 5, right: 30, bottom: 5, left: -10 }}
+        margin={{ top: 5, right: 25, bottom: 5, left: -25 }}
       >
         <defs>
           <linearGradient id="line1" x1="0" y1="0" x2="0" y2="1">
