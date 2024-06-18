@@ -7,6 +7,7 @@ import {
   Tooltip,
   TooltipProps,
   ComposedChart,
+  ResponsiveContainer,
 } from 'recharts'
 import { useWeather } from '@/hooks/useWeather'
 import { useWeatherStore } from '@/store/useWeatherStore'
@@ -72,60 +73,60 @@ export const Forecast: React.FC = () => {
     <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col gap-5">
       {isLoading && <p>Loading</p>}
       {isError && <p>{errorMessage}</p>}
-      <h3>5-day Forecast</h3>
-      <ComposedChart
-        width={500}
-        height={300}
-        data={dataPoints}
-        margin={{ top: 5, right: 25, bottom: 5, left: -25 }}
-      >
-        <defs>
-          <linearGradient id="line1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="40%" stopColor="#FFB686" stopOpacity={1} />
-            <stop offset="100%" stopColor="#FFB686" stopOpacity={0.6} />
-          </linearGradient>
-          <linearGradient id="line2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="50%" stopColor="#FF755F" stopOpacity={1} />
-            <stop offset="100%" stopColor="#FF755F" stopOpacity={1} />
-          </linearGradient>
-          <linearGradient id="line3" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#CDD5C6" stopOpacity={1} />
-            <stop offset="90%" stopColor="#CDD5C6" stopOpacity={0.3} />
-          </linearGradient>
-        </defs>
-        <XAxis dataKey="name" className="chartX" stroke="#777" />
-        <YAxis className="chartX" stroke="#777" />
-        <Tooltip cursor={{ stroke: '#444' }} content={<CustomTooltip />} />
-        <Legend />
-        <Area
-          type="monotone"
-          dataKey="humidity"
-          stroke="#CDD5C6"
-          strokeWidth={0}
-          fillOpacity={1}
-          fill="url(#line3)"
-          animationBegin={500}
-          animationEasing="ease-in-out"
-        />
-        <Area
-          type="monotone"
-          dataKey="temperature"
-          stroke="#FFB686"
-          fillOpacity={1}
-          fill="url(#line1)"
-          animationBegin={300}
-          animationEasing="ease-in-out"
-        />
-        <Area
-          type="monotone"
-          dataKey="wind"
-          stroke="#FF755F"
-          fillOpacity={1}
-          fill="url(#line2)"
-          animationBegin={400}
-          animationEasing="ease-in-out"
-        />
-      </ComposedChart>
+      <h2>5-day Forecast</h2>
+      <ResponsiveContainer width="100%" height={300}>
+        <ComposedChart
+          data={dataPoints}
+          margin={{ top: 5, right: 25, bottom: 5, left: -25 }}
+        >
+          <defs>
+            <linearGradient id="line1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="40%" stopColor="#FFB686" stopOpacity={1} />
+              <stop offset="100%" stopColor="#FFB686" stopOpacity={0.6} />
+            </linearGradient>
+            <linearGradient id="line2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="50%" stopColor="#FF755F" stopOpacity={1} />
+              <stop offset="100%" stopColor="#FF755F" stopOpacity={1} />
+            </linearGradient>
+            <linearGradient id="line3" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#CDD5C6" stopOpacity={1} />
+              <stop offset="90%" stopColor="#CDD5C6" stopOpacity={0.3} />
+            </linearGradient>
+          </defs>
+          <XAxis dataKey="name" className="chartX" stroke="#777" />
+          <YAxis className="chartX" stroke="#777" />
+          <Tooltip cursor={{ stroke: '#444' }} content={<CustomTooltip />} />
+          <Legend />
+          <Area
+            type="monotone"
+            dataKey="humidity"
+            stroke="#CDD5C6"
+            strokeWidth={0}
+            fillOpacity={1}
+            fill="url(#line3)"
+            animationBegin={500}
+            animationEasing="ease-in-out"
+          />
+          <Area
+            type="monotone"
+            dataKey="temperature"
+            stroke="#FFB686"
+            fillOpacity={1}
+            fill="url(#line1)"
+            animationBegin={300}
+            animationEasing="ease-in-out"
+          />
+          <Area
+            type="monotone"
+            dataKey="wind"
+            stroke="#FF755F"
+            fillOpacity={1}
+            fill="url(#line2)"
+            animationBegin={400}
+            animationEasing="ease-in-out"
+          />
+        </ComposedChart>
+      </ResponsiveContainer>
     </Block>
   )
 }

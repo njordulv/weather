@@ -1,11 +1,21 @@
+import { useWeather } from '@/hooks/useWeather'
 import { useWeatherStore } from '@/store/useWeatherStore'
-import { WeatherDataProps } from '@/interfaces'
 import { getFormattedTime } from '@/utils'
 import { Block } from '@/components/ui/Block'
 import { WindSpeed } from '@/components/ui/WindSpeed'
+import { Loading } from '@/components/ui/Loading'
+import { Error } from '@/components/ui/Error'
 
-export const WeatherData = ({ data }: WeatherDataProps) => {
+const API_KEY = process.env.REACT_APP_API_KEY
+
+export const WeatherData = () => {
+  const defaultCity = useWeatherStore((state) => state.defaultCity)
   const isMetric = useWeatherStore((state) => state.isMetric)
+
+  const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${API_KEY}${
+    isMetric ? '&units=metric' : '&units=imperial'
+  }`
+  const { data, isLoading, isError, errorMessage } = useWeather({ endpoint })
 
   if (!data) return null
 
@@ -21,6 +31,8 @@ export const WeatherData = ({ data }: WeatherDataProps) => {
       <h2>
         {data.name}, {data.sys.country}
       </h2>
+      {isLoading && <Loading />}
+      {isError && <Error message={errorMessage} />}
       <ul>
         <li>
           <img
