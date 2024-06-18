@@ -70,7 +70,7 @@ export const Forecast: React.FC = () => {
   }
 
   return (
-    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col gap-5">
+    <Block className="col-span-12 row-span-2 md:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5">
       {isLoading && <p>Loading</p>}
       {isError && <p>{errorMessage}</p>}
       <h2>5-day Forecast</h2>
@@ -104,26 +104,22 @@ export const Forecast: React.FC = () => {
             strokeWidth={0}
             fillOpacity={1}
             fill="url(#line3)"
-            animationBegin={500}
-            animationEasing="ease-in-out"
           />
           <Area
             type="monotone"
             dataKey="temperature"
             stroke="#FFB686"
+            strokeWidth={0}
             fillOpacity={1}
             fill="url(#line1)"
-            animationBegin={300}
-            animationEasing="ease-in-out"
           />
           <Area
             type="monotone"
-            dataKey="wind"
             stroke="#FF755F"
+            dataKey="wind"
+            strokeWidth={0}
             fillOpacity={1}
             fill="url(#line2)"
-            animationBegin={400}
-            animationEasing="ease-in-out"
           />
         </ComposedChart>
       </ResponsiveContainer>

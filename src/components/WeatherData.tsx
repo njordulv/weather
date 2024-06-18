@@ -27,7 +27,7 @@ export const WeatherData = () => {
   const visibility = (data.visibility / 1000).toFixed(1)
 
   return (
-    <Block className="col-span-12 row-span-2 md:col-span-6 bg-success border-2 p-6 flex flex-col gap-5">
+    <Block className="col-span-12 row-span-2 md:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5">
       <h2>
         {data.name}, {data.sys.country}
       </h2>
@@ -51,7 +51,7 @@ export const WeatherData = () => {
         <li>Pressure: {data.main.pressure} hPa</li>
         <li>Humidity: {data.main.humidity} %</li>
         <li>
-          Wind: {wind}m/s WSW. <WindSpeed data={data} />
+          Wind: {`${wind}${isMetric ? 'm/s' : 'mph'}`} <WindSpeed data={data} />
         </li>
         <li>Visibility: {visibility}km</li>
         <li>Latest weather update: {getFormattedTime(data.dt)}</li>
