@@ -30,7 +30,7 @@ export const SearchForm = () => {
           placeholder="Enter city name"
           className="w-full px-7 py-2 rounded-full appearance-none border-none focus:shadow-inner outline-none text-slate-500 shadow-lg transition-all"
         />
-        <Button title="Submit" type="submit" />
+        <Button title="Search" type="submit" />
         <Metric />
       </form>
     </Block>

@@ -1,6 +1,6 @@
 import { useWeather } from '@/hooks/useWeather'
 import { useWeatherStore } from '@/store/useWeatherStore'
-import { getFormattedTime } from '@/utils'
+import { getFormattedTime, getDate } from '@/utils'
 import { Block } from '@/components/ui/Block'
 import { WindSpeed } from '@/components/ui/WindSpeed'
 import { WindDirection } from '@/components/ui/WindDirection'
@@ -44,11 +44,11 @@ export const WeatherData = () => {
           />{' '}
           {`${temp1}${isMetric ? '°C' : '°F'}`}
         </li>
+        <li>Today {getDate()}</li>
         <li>Feels like: {`${temp2}${isMetric ? '°C' : '°F'}`}</li>
+        <li>{data.weather[0].description}</li>
         <li>Min: {`${tempMin}${isMetric ? '°C' : '°F'}`}</li>
         <li>Max: {`${tempMax}${isMetric ? '°C' : '°F'}`}</li>
-        <li>Weather: {data.weather[0].main}</li>
-        <li>Description: {data.weather[0].description}</li>
         <li>Pressure: {data.main.pressure} hPa</li>
         <li>Humidity: {data.main.humidity} %</li>
         <li>
