@@ -3,6 +3,7 @@ import { useWeatherStore } from '@/store/useWeatherStore'
 import { getFormattedTime } from '@/utils'
 import { Block } from '@/components/ui/Block'
 import { WindSpeed } from '@/components/ui/WindSpeed'
+import { WindDirection } from '@/components/ui/WindDirection'
 import { Loading } from '@/components/ui/Loading'
 import { Error } from '@/components/ui/Error'
 
@@ -51,7 +52,11 @@ export const WeatherData = () => {
         <li>Pressure: {data.main.pressure} hPa</li>
         <li>Humidity: {data.main.humidity} %</li>
         <li>
-          Wind: {`${wind}${isMetric ? 'm/s' : 'mph'}`} <WindSpeed data={data} />
+          Wind:{' '}
+          <span className="lowercase">
+            {`${wind}${isMetric ? 'm/s' : 'mph'}`}{' '}
+          </span>
+          <WindDirection data={data} />. <WindSpeed data={data} />
         </li>
         <li>Visibility: {visibility}km</li>
         <li>Latest weather update: {getFormattedTime(data.dt)}</li>
