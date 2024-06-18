@@ -1,9 +1,10 @@
+import React from 'react'
 import { useWeatherStore, selectSearchCity } from '@/store/useWeatherStore'
 import { Block } from '@/components/ui/Block'
 import { Button } from '@/components/ui/Button'
 import { Metric } from '@/components/ui/Metric'
 
-export const SearchForm = () => {
+export const SearchForm: React.FC = () => {
   const searchCity = useWeatherStore(selectSearchCity)
   const updateSearchCity = useWeatherStore((state) => state.updateSearchCity)
   const updateDefaultCity = useWeatherStore((state) => state.updateDefaultCity)
@@ -36,4 +37,5 @@ export const SearchForm = () => {
     </Block>
   )
 }
-export default SearchForm
+
+export default React.memo(SearchForm)
