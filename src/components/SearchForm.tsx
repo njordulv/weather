@@ -1,10 +1,10 @@
-import { useWeatherStore } from '@/store/useWeatherStore'
+import { useWeatherStore, selectSearchCity } from '@/store/useWeatherStore'
 import { Block } from '@/components/ui/Block'
 import { Button } from '@/components/ui/Button'
 import { Metric } from '@/components/ui/Metric'
 
 export const SearchForm = () => {
-  const searchCity = useWeatherStore((state) => state.searchCity)
+  const searchCity = useWeatherStore(selectSearchCity)
   const updateSearchCity = useWeatherStore((state) => state.updateSearchCity)
   const updateDefaultCity = useWeatherStore((state) => state.updateDefaultCity)
 

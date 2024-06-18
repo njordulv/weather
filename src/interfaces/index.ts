@@ -50,6 +50,15 @@ export interface WeatherDataProps {
   data: WeatherData | null
 }
 
+export interface WeatherState {
+  defaultCity: string
+  searchCity: string
+  isMetric: boolean
+  updateDefaultCity: (city: string) => void
+  updateSearchCity: (city: string) => void
+  toggleMetric: () => void
+}
+
 export interface ButtonProps {
   title: string
   onClick?: () => void

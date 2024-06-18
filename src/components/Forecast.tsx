@@ -10,7 +10,11 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { useWeather } from '@/hooks/useWeather'
-import { useWeatherStore } from '@/store/useWeatherStore'
+import {
+  useWeatherStore,
+  selectDefaultCity,
+  selectIsMetric,
+} from '@/store/useWeatherStore'
 import { formatDateTime } from '@/utils'
 
 const API_KEY = process.env.REACT_APP_API_KEY
@@ -21,8 +25,8 @@ interface CustomTooltipProps extends TooltipProps<string, string> {
 }
 
 export const Forecast: React.FC = () => {
-  const defaultCity = useWeatherStore((state) => state.defaultCity)
-  const isMetric = useWeatherStore((state) => state.isMetric)
+  const defaultCity = useWeatherStore(selectDefaultCity)
+  const isMetric = useWeatherStore(selectIsMetric)
 
   const endpoint = `https://api.openweathermap.org/data/2.5/forecast?q=${defaultCity}&appid=${API_KEY}${
     isMetric ? '&units=metric' : '&units=imperial'

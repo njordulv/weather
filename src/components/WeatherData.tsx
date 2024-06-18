@@ -1,5 +1,9 @@
 import { useWeather } from '@/hooks/useWeather'
-import { useWeatherStore } from '@/store/useWeatherStore'
+import {
+  useWeatherStore,
+  selectDefaultCity,
+  selectIsMetric,
+} from '@/store/useWeatherStore'
 import { getFormattedTime, getDate } from '@/utils'
 import { Block } from '@/components/ui/Block'
 import { WindSpeed } from '@/components/ui/WindSpeed'
@@ -10,8 +14,8 @@ import { Error } from '@/components/ui/Error'
 const API_KEY = process.env.REACT_APP_API_KEY
 
 export const WeatherData = () => {
-  const defaultCity = useWeatherStore((state) => state.defaultCity)
-  const isMetric = useWeatherStore((state) => state.isMetric)
+  const defaultCity = useWeatherStore(selectDefaultCity)
+  const isMetric = useWeatherStore(selectIsMetric)
 
   const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${API_KEY}${
     isMetric ? '&units=metric' : '&units=imperial'

@@ -1,8 +1,8 @@
-import { useWeatherStore } from '@/store/useWeatherStore'
+import { useWeatherStore, selectIsMetric } from '@/store/useWeatherStore'
 import { Button } from '@/components/ui/Button'
 
 export const Metric: React.FC = () => {
-  const isMetric = useWeatherStore((state) => state.isMetric)
+  const isMetric = useWeatherStore(selectIsMetric)
   const toggleMetric = useWeatherStore((state) => state.toggleMetric)
 
   return (
