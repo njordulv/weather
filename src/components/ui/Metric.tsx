@@ -6,12 +6,10 @@ export const Metric: React.FC = () => {
   const toggleMetric = useWeatherStore((state) => state.toggleMetric)
 
   return (
-    <>
-      <Button
-        title={isMetric ? 'Metric: °C, m/s' : 'Imperial: °F, mph'}
-        type="button"
-        onClick={toggleMetric}
-      />
-    </>
+    <Button
+      title={isMetric ? 'Metric: °C, m/s' : 'Imperial: °F, mph'}
+      type="button"
+      onClick={toggleMetric}
+    />
   )
 }

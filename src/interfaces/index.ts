@@ -49,3 +49,10 @@ export interface WeatherData {
 export interface WeatherDataProps {
   data: WeatherData | null
 }
+
+export interface ButtonProps {
+  title: string
+  onClick?: () => void
+  type?: 'submit' | 'button'
+  className?: string
+}

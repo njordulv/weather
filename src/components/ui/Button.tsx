@@ -1,9 +1,4 @@
-interface ButtonProps {
-  title: string
-  onClick?: () => void
-  type?: 'submit' | 'button'
-  className?: string
-}
+import { ButtonProps } from '@/interfaces'
 
 export const Button: React.FC<ButtonProps> = ({ title, onClick, type }) => {
   return (

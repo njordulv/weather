@@ -13,7 +13,7 @@ export const App = () => {
             animate="animate"
             className="mx-auto flex flex-col sm:grid sm:grid-cols-12 gap-6 px-5"
             transition={{
-              staggerChildren: 0.1,
+              staggerChildren: 1,
             }}
           >
             <SearchForm />
