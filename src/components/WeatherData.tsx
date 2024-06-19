@@ -1,5 +1,6 @@
 import {
   WiThermometer,
+  WiThermometerExterior,
   WiSunrise,
   WiSunset,
   WiBarometer,
@@ -15,6 +16,7 @@ import {
 } from '@/store/useWeatherStore'
 import { getFormattedTime, getDate } from '@/utils'
 import { Block } from '@/components/ui/Block'
+import { Clouds } from '@/components/ui/Clouds'
 import { WindSpeed } from '@/components/ui/WindSpeed'
 import { WindDirection } from '@/components/ui/WindDirection'
 import { Loading } from '@/components/ui/Loading'
@@ -33,10 +35,8 @@ export const WeatherData = () => {
 
   if (!data) return null
 
-  const temp1 = Math.ceil(data.main.temp)
-  const temp2 = Math.ceil(data.main.feels_like)
-  const tempMin = Math.ceil(data.main.temp_min)
-  const tempMax = Math.ceil(data.main.temp_max)
+  const tempActual = Math.ceil(data.main.temp)
+  const tempFeels = Math.ceil(data.main.feels_like)
   const wind = data.wind.speed.toFixed(1)
   const visibility = (data.visibility / 1000).toFixed(1)
 
@@ -50,21 +50,16 @@ export const WeatherData = () => {
       <ul>
         <li>Today {getDate()}</li>
         <li>
-          <img
-            width="50"
-            height="50"
-            src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-            alt="weather icon"
-          />{' '}
-          {<WiThermometer size={24} />} {`${temp1}${isMetric ? '°C' : '°F'}`}
+          {<WiThermometer size={24} />}{' '}
+          {`${tempActual}${isMetric ? '°C' : '°F'}`}
         </li>
         <li>
-          <WiThermometer size={24} />
-          Feels like: {`${temp2}${isMetric ? '°C' : '°F'}`}
+          <WiThermometerExterior size={24} />
+          Feels like: {`${tempFeels}${isMetric ? '°C' : '°F'}`}
         </li>
-        <li>{data.weather[0].description}</li>
-        <li>Min: {`${tempMin}${isMetric ? '°C' : '°F'}`}</li>
-        <li>Max: {`${tempMax}${isMetric ? '°C' : '°F'}`}</li>
+        <li>
+          <Clouds data={data} />
+        </li>
         <li>
           <WiBarometer size={24} />
           Pressure: {data.main.pressure} hPa
