@@ -51,17 +51,12 @@ export interface WeatherDataProps {
 }
 
 export interface WeatherState {
-  data: any | null
   defaultCity: string
   searchCity: string
   isMetric: boolean
-  isLoading: boolean
-  isError: boolean
-  errorMessage: string | null
   updateDefaultCity: (city: string) => void
   updateSearchCity: (city: string) => void
   toggleMetric: () => void
-  fetchWeather: () => Promise<void>
 }
 
 export interface ButtonProps {

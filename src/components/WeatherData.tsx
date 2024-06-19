@@ -1,33 +1,28 @@
-import { useEffect } from 'react'
+import { useWeather } from '@/hooks/useWeather'
+import {
+  useWeatherStore,
+  selectDefaultCity,
+  selectIsMetric,
+} from '@/store/useWeatherStore'
 import { getFormattedTime, getDate } from '@/utils'
 import { Block } from '@/components/ui/Block'
 import { WindSpeed } from '@/components/ui/WindSpeed'
 import { WindDirection } from '@/components/ui/WindDirection'
-import {
-  useWeatherStore,
-  selectIsMetric,
-  selectWeatherData,
-  selectIsLoading,
-  selectIsError,
-  selectErrorMessage,
-} from '@/store/useWeatherStore'
+import { Loading } from '@/components/ui/Loading'
+import { Error } from '@/components/ui/Error'
+
+const API_KEY = process.env.REACT_APP_API_KEY
 
 export const WeatherData = () => {
-  const fetchWeather = useWeatherStore((state) => state.fetchWeather)
-  const data = useWeatherStore(selectWeatherData)
-  const isLoading = useWeatherStore(selectIsLoading)
-  const isError = useWeatherStore(selectIsError)
-  const errorMessage = useWeatherStore(selectErrorMessage)
+  const defaultCity = useWeatherStore(selectDefaultCity)
   const isMetric = useWeatherStore(selectIsMetric)
 
-  useEffect(() => {
-    fetchWeather()
-  }, [fetchWeather])
+  const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${API_KEY}${
+    isMetric ? '&units=metric' : '&units=imperial'
+  }`
+  const { data, isLoading, isError, errorMessage } = useWeather({ endpoint })
 
-  if (isLoading) return <p>Loading...</p>
-  if (isError) return <p>Error: {errorMessage}</p>
-  if (!data || !data.main || !data.weather || !data.sys)
-    return <p>No data available</p>
+  if (!data) return null
 
   const temp1 = Math.ceil(data.main.temp)
   const temp2 = Math.ceil(data.main.feels_like)
@@ -41,6 +36,8 @@ export const WeatherData = () => {
       <h2>
         {data.name}, {data.sys.country}
       </h2>
+      {isLoading && <Loading />}
+      {isError && <Error message={errorMessage} />}
       <ul>
         <li>
           <img
