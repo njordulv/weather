@@ -1,3 +1,12 @@
+import {
+  WiThermometer,
+  WiSunrise,
+  WiSunset,
+  WiBarometer,
+  WiHorizonAlt,
+  WiHumidity,
+  WiStrongWind,
+} from 'react-icons/wi'
 import { useWeather } from '@/hooks/useWeather'
 import {
   useWeatherStore,
@@ -39,6 +48,7 @@ export const WeatherData = () => {
       {isLoading && <Loading />}
       {isError && <Error message={errorMessage} />}
       <ul>
+        <li>Today {getDate()}</li>
         <li>
           <img
             width="50"
@@ -46,26 +56,39 @@ export const WeatherData = () => {
             src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
             alt="weather icon"
           />{' '}
-          {`${temp1}${isMetric ? '°C' : '°F'}`}
+          {<WiThermometer size={24} />} {`${temp1}${isMetric ? '°C' : '°F'}`}
         </li>
-        <li>Today {getDate()}</li>
-        <li>Feels like: {`${temp2}${isMetric ? '°C' : '°F'}`}</li>
+        <li>
+          <WiThermometer size={24} />
+          Feels like: {`${temp2}${isMetric ? '°C' : '°F'}`}
+        </li>
         <li>{data.weather[0].description}</li>
         <li>Min: {`${tempMin}${isMetric ? '°C' : '°F'}`}</li>
         <li>Max: {`${tempMax}${isMetric ? '°C' : '°F'}`}</li>
-        <li>Pressure: {data.main.pressure} hPa</li>
-        <li>Humidity: {data.main.humidity} %</li>
         <li>
+          <WiBarometer size={24} />
+          Pressure: {data.main.pressure} hPa
+        </li>
+        <li>
+          <WiHumidity size={24} /> Humidity: {data.main.humidity} %
+        </li>
+        <li>
+          <WiStrongWind size={24} />
           Wind:{' '}
           <span className="lowercase">
             {`${wind}${isMetric ? 'm/s' : 'mph'}`}{' '}
           </span>
           <WindDirection data={data} />. <WindSpeed data={data} />
         </li>
-        <li>Visibility: {visibility}km</li>
-        <li>Latest weather update: {getFormattedTime(data.dt)}</li>
-        <li>Sunrise: {getFormattedTime(data.sys.sunrise)}</li>
-        <li>Sunset: {getFormattedTime(data.sys.sunset)}</li>
+        <li>
+          <WiHorizonAlt size={24} />: {visibility}km
+        </li>
+        <li>
+          <WiSunrise size={24} /> {getFormattedTime(data.sys.sunrise)}
+        </li>
+        <li>
+          <WiSunset size={24} /> {getFormattedTime(data.sys.sunset)}
+        </li>
       </ul>
     </Block>
   )

@@ -64,7 +64,10 @@ export const WindDirection: React.FC<WeatherDataProps> = ({ data }) => {
 
   return (
     <>
-      <TiLocationArrow style={{ transform: `rotate(${rotation}deg)` }} />{' '}
+      <TiLocationArrow
+        size={22}
+        style={{ transform: `rotate(${rotation}deg)` }}
+      />{' '}
       {direction}
     </>
   )
