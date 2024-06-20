@@ -46,8 +46,37 @@ export interface WeatherData {
   cod: number
 }
 
+export interface WeatherForecast {
+  dt_txt: string
+  main: {
+    temp: number
+    feels_like: number
+    temp_min: number
+    temp_max: number
+    pressure: number
+    humidity: number
+  }
+  weather: {
+    id: number
+    main: string
+    description: string
+    icon: string
+  }[]
+  clouds: {
+    all: number
+  }
+  wind: {
+    speed: number
+    deg: number
+  }
+}
+
+export interface WeatherDataWithForecast extends WeatherData {
+  list: WeatherForecast[]
+}
+
 export interface WeatherDataProps {
-  data: WeatherData | null
+  data: WeatherDataWithForecast | null
 }
 
 export interface WeatherState {

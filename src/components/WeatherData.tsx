@@ -33,7 +33,7 @@ export const WeatherData = () => {
   }`
   const { data, isLoading, isError, errorMessage } = useWeather({ endpoint })
 
-  if (!data) return null
+  if (!data) return <Error message={errorMessage} />
 
   const tempActual = Math.ceil(data.main.temp)
   const tempFeels = Math.ceil(data.main.feels_like)
@@ -42,13 +42,13 @@ export const WeatherData = () => {
 
   return (
     <Block className="col-span-12 row-span-2 md:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5">
-      <h2>
+      <h2 className="flex flex-col">
         {data.name}, {data.sys.country}
+        <span className="text-lg">{getDate()}</span>
       </h2>
       {isLoading && <Loading />}
       {isError && <Error message={errorMessage} />}
       <ul>
-        <li>Today {getDate()}</li>
         <li>
           {<WiThermometer size={24} />}{' '}
           {`${tempActual}${isMetric ? '°C' : '°F'}`}
@@ -76,13 +76,13 @@ export const WeatherData = () => {
           <WindDirection data={data} />. <WindSpeed data={data} />
         </li>
         <li>
-          <WiHorizonAlt size={24} />: {visibility}km
+          <WiHorizonAlt size={24} /> Horizon: {visibility}km
         </li>
         <li>
-          <WiSunrise size={24} /> {getFormattedTime(data.sys.sunrise)}
+          <WiSunrise size={24} /> Sunrise: {getFormattedTime(data.sys.sunrise)}
         </li>
         <li>
-          <WiSunset size={24} /> {getFormattedTime(data.sys.sunset)}
+          <WiSunset size={24} /> Sunset: {getFormattedTime(data.sys.sunset)}
         </li>
       </ul>
     </Block>
