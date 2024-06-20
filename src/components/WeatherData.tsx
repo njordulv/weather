@@ -43,52 +43,88 @@ export const WeatherData = () => {
 
   return (
     <Block className="col-span-12 row-span-2 md:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5">
-      <div className="flex items-center justify-between">
-        <h2 className="flex flex-col">
-          {data.name}, {data.sys.country}
-          <span className="text-lg">{getDate()}</span>
-        </h2>
-        <div className="flex text-6xl">
-          {tempActual}
-          {isMetric ? <WiCelsius /> : <WiFahrenheit />}
-        </div>
-        <div>
-          <Clouds data={data} size={60} description={false} />
-        </div>
-      </div>
-      {isLoading && <Loading />}
       {isError && <Error message={errorMessage} />}
-      <ul>
-        <li>
-          <WiThermometer size={24} />
-          Feels like: {`${tempFeels}${isMetric ? '°C' : '°F'}`}
-        </li>
-        <li></li>
-        <li>
-          <WiBarometer size={24} />
-          Pressure: {data.main.pressure} hPa
-        </li>
-        <li>
-          <WiHumidity size={24} /> Humidity: {data.main.humidity} %
-        </li>
-        <li>
-          <WiStrongWind size={24} />
-          Wind:{' '}
-          <span className="lowercase">
-            {`${wind}${isMetric ? 'm/s' : 'mph'}`}{' '}
-          </span>
-          <WindDirection data={data} />. <WindSpeed data={data} />
-        </li>
-        <li>
-          <WiHorizonAlt size={24} /> Horizon: {visibility}km
-        </li>
-        <li>
-          <WiSunrise size={24} /> Sunrise: {getFormattedTime(data.sys.sunrise)}
-        </li>
-        <li>
-          <WiSunset size={24} /> Sunset: {getFormattedTime(data.sys.sunset)}
-        </li>
-      </ul>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="flex items-center justify-between">
+            <h2 className="flex flex-col">
+              {data.name}, {data.sys.country}
+              <span className="text-lg">{getDate()}</span>
+            </h2>
+            <div className="flex text-6xl">
+              {tempActual}
+              {isMetric ? <WiCelsius /> : <WiFahrenheit />}
+            </div>
+            <div className="flex flex-col justify-center">
+              <Clouds data={data} iconSize={60} description={true} />
+            </div>
+          </div>
+          <ul className="flex gap-10 justify-between">
+            <li className="flex flex-col gap-0">
+              <span className="flex">
+                <WiThermometer size={24} />
+                Feels like:
+              </span>
+              <b>{`${tempFeels}${isMetric ? '°C' : '°F'}`}</b>
+            </li>
+            <li className="flex flex-col gap-0">
+              <span className="flex">
+                <WiBarometer size={24} /> Pressure:
+              </span>
+              <b>{data.main.pressure} hPa</b>
+            </li>
+            <li className="flex flex-col gap-0">
+              <span className="flex">
+                <WiHumidity size={24} /> Humidity:
+              </span>
+              <b>{data.main.humidity} %</b>
+            </li>
+          </ul>
+          <ul className="flex gap-10 justify-between">
+            <li className="flex flex-col gap-0">
+              <div className="flex">
+                <WiStrongWind size={24} />
+                Wind Speed:
+              </div>
+              <div>
+                <b className="lowercase">
+                  {`${wind}${isMetric ? 'm/s' : 'mph'}`}{' '}
+                </b>
+              </div>
+            </li>
+            <li className="flex flex-col gap-0">
+              <div className="flex">Wind Direction:</div>
+              <WindDirection data={data} />
+            </li>
+            <li>
+              <WindSpeed data={data} />
+            </li>
+          </ul>
+          <ul className="flex gap-10 justify-between">
+            <li className="flex flex-col gap-0">
+              <span className="flex">
+                <WiHorizonAlt size={24} />
+                Horizon:
+              </span>
+              <b>{visibility}km</b>
+            </li>
+            <li className="flex flex-col gap-0">
+              <span className="flex">
+                <WiSunrise size={24} /> Sunrise:
+              </span>
+              <b>{getFormattedTime(data.sys.sunrise)}</b>
+            </li>
+            <li className="flex flex-col gap-0">
+              <span className="flex">
+                <WiSunset size={24} /> Sunset:
+              </span>
+              <b>{getFormattedTime(data.sys.sunset)}</b>
+            </li>
+          </ul>
+        </>
+      )}
     </Block>
   )
 }

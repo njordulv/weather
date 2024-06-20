@@ -18,17 +18,21 @@ export const Forecast: React.FC = () => {
   }`
   const { data, isLoading } = useWeather({ endpoint })
 
-  if (isLoading) {
-    return <Loading />
-  }
-
   return (
     <>
-      {data && (
-        <Block className="col-span-12 row-span-2 md:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5">
-          <h2>5-day Forecast</h2>
-        </Block>
-      )}
+      <Block className="col-span-12 row-span-2 md:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5 min-h-64">
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            {data && (
+              <>
+                <h2>5-day Forecast</h2>
+              </>
+            )}
+          </>
+        )}
+      </Block>
     </>
   )
 }

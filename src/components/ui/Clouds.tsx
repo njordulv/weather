@@ -14,7 +14,7 @@ import {
 import { WeatherDataProps } from '@/interfaces'
 
 interface CloudsProps extends WeatherDataProps {
-  size?: number
+  iconSize?: number
   description?: boolean
 }
 
@@ -45,7 +45,7 @@ const getWeatherIcon = (description: string, icon: string) => {
 
 export const Clouds: React.FC<CloudsProps> = ({
   data,
-  size = 24,
+  iconSize = 24,
   description = false,
 }) => {
   if (!data || !data.weather || !data.weather[0].description) return null
@@ -55,7 +55,8 @@ export const Clouds: React.FC<CloudsProps> = ({
 
   return (
     <>
-      <WeatherIcon size={size} /> {description && weatherDescription}
+      <WeatherIcon size={iconSize} />{' '}
+      <span className="clouds-text">{description && weatherDescription}</span>
     </>
   )
 }
