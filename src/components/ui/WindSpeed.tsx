@@ -63,11 +63,11 @@ export const WindSpeed: React.FC<WeatherDataProps> = ({ data }) => {
       break
     case value > 28.5 && value <= 32.6:
       icon = <WiSandstorm size={24} />
-      description = 'Violent storm'
+      description = 'Hurricane'
       break
     default:
-      icon = <WiHurricane size={24} />
-      description = 'Hurricane'
+      icon = ''
+      description = ''
   }
 
   return (
