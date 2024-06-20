@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   WiDayLightWind,
   WiDayCloudyWindy,
@@ -7,7 +6,6 @@ import {
   WiStrongWind,
   WiGaleWarning,
   WiHurricaneWarning,
-  WiHurricane,
   WiStormWarning,
   WiSandstorm,
 } from 'react-icons/wi'

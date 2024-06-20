@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 
 interface ApiProps {
-  endpoint: string
+  endpoint: string | null
 }
 
 const fetcher = (url: string) =>

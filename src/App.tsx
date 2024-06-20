@@ -1,7 +1,7 @@
 import { m, LazyMotion, domAnimation } from 'framer-motion'
 import { SearchForm } from '@/components/SearchForm'
 import { WeatherData } from '@/components/WeatherData'
-// import { Forecast } from '@/components/Forecast'
+import { Forecast } from '@/components/Forecast'
 
 export const App = () => {
   return (
@@ -18,7 +18,7 @@ export const App = () => {
           >
             <SearchForm />
             <WeatherData />
-            {/* <Forecast /> */}
+            <Forecast />
           </m.div>
         </LazyMotion>
       </section>
