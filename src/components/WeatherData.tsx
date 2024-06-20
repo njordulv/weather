@@ -1,12 +1,13 @@
 import {
   WiThermometer,
-  WiThermometerExterior,
   WiSunrise,
   WiSunset,
   WiBarometer,
   WiHorizonAlt,
   WiHumidity,
   WiStrongWind,
+  WiCelsius,
+  WiFahrenheit,
 } from 'react-icons/wi'
 import { useWeather } from '@/hooks/useWeather'
 import {
@@ -42,24 +43,27 @@ export const WeatherData = () => {
 
   return (
     <Block className="col-span-12 row-span-2 md:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5">
-      <h2 className="flex flex-col">
-        {data.name}, {data.sys.country}
-        <span className="text-lg">{getDate()}</span>
-      </h2>
+      <div className="flex items-center justify-between">
+        <h2 className="flex flex-col">
+          {data.name}, {data.sys.country}
+          <span className="text-lg">{getDate()}</span>
+        </h2>
+        <div className="flex text-6xl">
+          {tempActual}
+          {isMetric ? <WiCelsius /> : <WiFahrenheit />}
+        </div>
+        <div>
+          <Clouds data={data} size={60} description={false} />
+        </div>
+      </div>
       {isLoading && <Loading />}
       {isError && <Error message={errorMessage} />}
       <ul>
         <li>
-          {<WiThermometer size={24} />}{' '}
-          {`${tempActual}${isMetric ? '°C' : '°F'}`}
-        </li>
-        <li>
-          <WiThermometerExterior size={24} />
+          <WiThermometer size={24} />
           Feels like: {`${tempFeels}${isMetric ? '°C' : '°F'}`}
         </li>
-        <li>
-          <Clouds data={data} />
-        </li>
+        <li></li>
         <li>
           <WiBarometer size={24} />
           Pressure: {data.main.pressure} hPa

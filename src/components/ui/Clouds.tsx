@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   WiDaySunny,
   WiNightClear,
@@ -14,55 +13,49 @@ import {
 } from 'react-icons/wi'
 import { WeatherDataProps } from '@/interfaces'
 
-export const Clouds: React.FC<WeatherDataProps> = ({ data }) => {
-  if (!data || !data.weather || !data.weather[0].description) return null
+interface CloudsProps extends WeatherDataProps {
+  size?: number
+  description?: boolean
+}
 
-  let description = data.weather[0].description
-  let icon
-
+const getWeatherIcon = (description: string, icon: string) => {
   switch (description) {
     case 'clear sky':
-      icon = data.weather[0].icon.includes('d') ? (
-        <WiDaySunny size={24} />
-      ) : (
-        <WiNightClear size={24} />
-      )
-      break
+      return icon.includes('d') ? WiDaySunny : WiNightClear
     case 'few clouds':
-      icon = data.weather[0].icon.includes('d') ? (
-        <WiDayCloudy size={24} />
-      ) : (
-        <WiNightAltCloudy size={24} />
-      )
-      break
+      return icon.includes('d') ? WiDayCloudy : WiNightAltCloudy
     case 'scattered clouds':
-      icon = <WiCloud size={24} />
-      break
+      return WiCloud
     case 'broken clouds':
-      icon = <WiCloudy size={24} />
-      break
+      return WiCloudy
     case 'shower rain':
-      icon = <WiShowers size={24} />
-      break
+      return WiShowers
     case 'rain':
-      icon = <WiRain size={24} />
-      break
+      return WiRain
     case 'thunderstorm':
-      icon = <WiThunderstorm size={24} />
-      break
+      return WiThunderstorm
     case 'snow':
-      icon = <WiSnow size={24} />
-      break
+      return WiSnow
     case 'mist':
-      icon = <WiFog size={24} />
-      break
+      return WiFog
     default:
-      icon = <WiCloud size={24} />
+      return WiCloud
   }
+}
+
+export const Clouds: React.FC<CloudsProps> = ({
+  data,
+  size = 24,
+  description = false,
+}) => {
+  if (!data || !data.weather || !data.weather[0].description) return null
+
+  const weatherDescription = data.weather[0].description
+  const WeatherIcon = getWeatherIcon(weatherDescription, data.weather[0].icon)
 
   return (
     <>
-      {icon} {description}
+      <WeatherIcon size={size} /> {description && weatherDescription}
     </>
   )
 }
