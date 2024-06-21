@@ -1,15 +1,30 @@
+import { alpha, styled } from '@mui/material/styles'
+import { blue } from '@mui/material/colors'
+import Switch from '@mui/material/Switch'
 import { useWeatherStore, selectIsMetric } from '@/store/useWeatherStore'
-import { Button } from '@/components/ui/Button'
 
-export const Metric: React.FC = () => {
+const MetricSwitch = styled(Switch)(({ theme }) => ({
+  '& .MuiSwitch-switchBase.Mui-checked': {
+    color: 'white',
+    '&:hover': {
+      backgroundColor: alpha(blue[800], theme.palette.action.hoverOpacity),
+    },
+  },
+  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+    backgroundColor: blue[600],
+  },
+}))
+
+const label = { inputProps: { 'aria-label': 'Color switch demo' } }
+
+export default function Metric() {
   const isMetric = useWeatherStore(selectIsMetric)
   const toggleMetric = useWeatherStore((state) => state.toggleMetric)
 
   return (
-    <Button
-      title={isMetric ? 'Metric: °C, m/s' : 'Imperial: °F, mph'}
-      type="button"
-      onClick={toggleMetric}
-    />
+    <div className="flex flex-col text-sm items-end">
+      <MetricSwitch {...label} defaultChecked onClick={toggleMetric} />
+      <span>{isMetric ? 'Metric: °C, m/s' : 'Imperial: °F, mph'}</span>
+    </div>
   )
 }

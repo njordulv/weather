@@ -1,7 +1,7 @@
 import { useWeatherStore, selectSearchCity } from '@/store/useWeatherStore'
 import { Block } from '@/components/ui/Block'
-import { Button } from '@/components/ui/Button'
-import { Metric } from '@/components/ui/Metric'
+import { Btn } from '@/components/ui/Btn'
+import Metric from '@/components/ui/Metric'
 
 export const SearchForm = () => {
   const searchCity = useWeatherStore(selectSearchCity)
@@ -21,16 +21,16 @@ export const SearchForm = () => {
     <Block className="col-span-12 row-span-2 flex flex-col justify-center">
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-[1fr] sm:grid-cols-[3fr_1fr_1fr] gap-6"
+        className="grid grid-cols-[1fr] sm:grid-cols-[7fr_2fr_2fr] items-center gap-6"
       >
         <input
           type="text"
           value={searchCity}
           onChange={handleChange}
           placeholder="Enter city name"
-          className="w-full px-7 py-2 rounded-full appearance-none border-none focus:shadow-inner outline-none text-slate-500 shadow-lg transition-all"
+          className="w-full px-7 py-2 h-[46px] rounded-xl appearance-none border-none focus:shadow-inner outline-none text-slate-500 shadow-lg transition-all"
         />
-        <Button title="Search" type="submit" />
+        <Btn title="Search" type="submit" />
         <Metric />
       </form>
     </Block>

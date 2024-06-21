@@ -32,7 +32,7 @@ export const Forecast: React.FC = () => {
 
   return (
     <>
-      <Block className="col-span-12 row-span-2 lg:col-span-6 bg-white shadow-lg p-6 flex flex-col gap-5 min-h-64">
+      <Block className="col-span-12 row-span-2 lg:col-span-6 bg-white p-5 gap-5 min-h-64">
         {isLoading ? (
           <Loading />
         ) : (

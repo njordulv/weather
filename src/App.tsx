@@ -5,7 +5,7 @@ import { Forecast } from '@/components/Forecast'
 
 export const App = () => {
   return (
-    <main className="container mx-auto max-w-[1170px] flex flex-col items-center justify-center gap-10 py-5 min-h-screen">
+    <main className="mx-auto max-w-[1170px] flex flex-col items-center justify-center gap-10 py-5 min-h-screen">
       <section className="App">
         <LazyMotion features={domAnimation}>
           <m.div

@@ -21,7 +21,10 @@ export const Block: React.FC<BlockProps> = ({ className, ...rest }) => {
         stiffness: 500,
         damping: 50,
       }}
-      className={twMerge('rounded-xl text-color border-black', className)}
+      className={twMerge(
+        'rounded-xl container shadow-lg flex flex-col',
+        className
+      )}
       {...rest}
     />
   )

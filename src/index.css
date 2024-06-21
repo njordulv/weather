@@ -7,24 +7,19 @@ body {
   font-family: 'Baloo 2', sans-serif;
   font-size: 18px;
   line-height: 24px;
+  color: #363636;
   background-image: linear-gradient(
-    45deg,
-    hsl(120deg 18% 91%) 0%,
-    hsl(120deg 18% 92%) 16%,
-    hsl(120deg 18% 92%) 23%,
-    hsl(120deg 18% 93%) 29%,
-    hsl(120deg 18% 93%) 34%,
-    hsl(120deg 18% 94%) 39%,
-    hsl(120deg 18% 94%) 43%,
-    hsl(120deg 17% 95%) 48%,
-    hsl(120deg 17% 95%) 52%,
-    hsl(120deg 17% 96%) 57%,
-    hsl(120deg 17% 96%) 61%,
-    hsl(120deg 17% 97%) 66%,
-    hsl(120deg 16% 97%) 71%,
-    hsl(120deg 16% 98%) 77%,
-    hsl(120deg 15% 98%) 84%,
-    hsl(120deg 14% 99%) 100%
+    180deg,
+    hsl(196deg 89% 54%) 0%,
+    hsl(200deg 75% 64%) 15%,
+    hsl(202deg 58% 69%) 29%,
+    hsl(204deg 40% 72%) 43%,
+    hsl(207deg 19% 74%) 56%,
+    hsl(351deg 3% 75%) 68%,
+    hsl(21deg 26% 77%) 79%,
+    hsl(23deg 50% 78%) 88%,
+    hsl(24deg 75% 78%) 95%,
+    hsl(25deg 100% 79%) 100%
   );
 }
 
@@ -43,27 +38,8 @@ ul {
 }
 
 .App {
-  color: #222;
   text-transform: capitalize;
   width: 100%;
-}
-
-.chartX {
-  font-size: 11px;
-  color: #e8d4c6;
-}
-
-.chartTooltip {
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 14px;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.3);
-  min-width: 120px;
 }
 
 h1,
@@ -88,6 +64,13 @@ h3 {
   font-weight: 400;
 }
 
+.container {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+}
+
 .weather-list {
   display: grid;
   grid-column-gap: 10px;
@@ -98,7 +81,6 @@ h3 {
   position: relative;
   overflow: hidden;
   display: flex;
-  border: 1px solid hwb(25 78% 9% / 0.8);
   border-radius: 10px;
   padding: 10px 14px;
   z-index: 0;
@@ -114,19 +96,8 @@ h3 {
   bottom: 0;
   opacity: 1;
   z-index: -1;
-  background-image: linear-gradient(
-    180deg,
-    hsl(0deg 0% 100%) 2%,
-    hsl(20deg 19% 99%) 45%,
-    hsl(20deg 26% 99%) 57%,
-    hsl(20deg 30% 99%) 66%,
-    hsl(20deg 33% 98%) 73%,
-    hsl(20deg 34% 98%) 79%,
-    hsl(20deg 35% 98%) 85%,
-    hsl(20deg 36% 97%) 90%,
-    hsl(20deg 37% 97%) 95%,
-    hsl(20deg 37% 97%) 100%
-  );
+  background-color: rgba(255, 255, 255, 0.7);
+  filter: blur(2px);
 }
 .weather-list li:after {
   content: '';
