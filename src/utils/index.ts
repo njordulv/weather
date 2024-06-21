@@ -11,10 +11,7 @@ export function formatDateTime(dateTime: string): string {
   const date = new Date(dateTime)
 
   const options: Intl.DateTimeFormatOptions = {
-    weekday: 'short',
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: false,
+    weekday: 'long',
   }
 
   const formattedDate = date.toLocaleString('en-US', options)
@@ -49,7 +46,6 @@ export function getDate() {
 
   const dayOfWeek = daysOfWeek[date.getDay()]
   const dayOfMonth = date.getDate()
-  const month = monthsOfYear[date.getMonth()]
 
-  return `${dayOfWeek}, ${dayOfMonth} ${month}`
+  return `${dayOfWeek}, ${dayOfMonth}`
 }

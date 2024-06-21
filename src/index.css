@@ -42,14 +42,6 @@ ul {
   padding: 0;
 }
 
-ul li {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  align-items: center;
-  justify-content: center;
-}
-
 .App {
   color: #222;
   text-transform: capitalize;
@@ -98,8 +90,6 @@ h3 {
 
 .weather-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
@@ -108,12 +98,9 @@ h3 {
   position: relative;
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 2px;
   border: 1px solid hwb(25 78% 9% / 0.8);
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 14px;
   z-index: 0;
 }
 
@@ -125,20 +112,20 @@ h3 {
   right: 0;
   top: 0;
   bottom: 0;
-  opacity: 0.5;
+  opacity: 1;
   z-index: -1;
   background-image: linear-gradient(
     180deg,
-    hsl(25deg 42% 84%) 2%,
-    hsl(25deg 42% 84%) 45%,
-    hsl(25deg 42% 83%) 57%,
-    hsl(24deg 42% 82%) 66%,
-    hsl(24deg 42% 81%) 73%,
-    hsl(24deg 42% 80%) 79%,
-    hsl(24deg 41% 80%) 85%,
-    hsl(24deg 41% 79%) 90%,
-    hsl(24deg 41% 78%) 95%,
-    hsl(24deg 41% 77%) 100%
+    hsl(0deg 0% 100%) 2%,
+    hsl(20deg 19% 99%) 45%,
+    hsl(20deg 26% 99%) 57%,
+    hsl(20deg 30% 99%) 66%,
+    hsl(20deg 33% 98%) 73%,
+    hsl(20deg 34% 98%) 79%,
+    hsl(20deg 35% 98%) 85%,
+    hsl(20deg 36% 97%) 90%,
+    hsl(20deg 37% 97%) 95%,
+    hsl(20deg 37% 97%) 100%
   );
 }
 .weather-list li:after {
@@ -149,7 +136,7 @@ h3 {
   right: 0;
   height: 20%;
   top: 0;
-  background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   border-radius: 20px 20px 100px 100px / 14px 14px 18px 18px;
   pointer-events: none;
 }
@@ -163,5 +150,11 @@ h3 {
 .weather-list li em {
   font-style: normal;
   font-weight: 500;
+  text-transform: lowercase;
+}
+
+.weather-list li i {
+  font-size: 15px;
+  font-style: normal;
   text-transform: lowercase;
 }
