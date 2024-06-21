@@ -56,7 +56,7 @@ export const Clouds: React.FC<CloudsProps> = ({
   return (
     <>
       <WeatherIcon size={iconSize} />{' '}
-      <span className="clouds-text">{description && weatherDescription}</span>
+      <span className="text-sm">{description && weatherDescription}</span>
     </>
   )
 }

@@ -2,42 +2,42 @@ import React from 'react'
 import { WiWindDeg } from 'react-icons/wi'
 import { WeatherDataProps } from '@/interfaces'
 
-const getFullWindDirection = (deg: number) => {
+const getWindDirection = (deg: number) => {
   switch (true) {
     case deg >= 0 && deg < 22:
-      return 'North'
+      return 'N'
     case deg >= 22 && deg < 45:
-      return 'North-Northeast'
+      return 'NNE'
     case deg >= 45 && deg < 67:
-      return 'Northeast'
+      return 'NE'
     case deg >= 67 && deg < 90:
-      return 'East-Northeast'
+      return 'ENE'
     case deg >= 90 && deg < 112:
-      return 'East'
+      return 'E'
     case deg >= 112 && deg < 135:
-      return 'East-Southeast'
+      return 'ESE'
     case deg >= 135 && deg < 157:
-      return 'Southeast'
+      return 'SE'
     case deg >= 157 && deg < 180:
-      return 'South-Southeast'
+      return 'SSE'
     case deg >= 180 && deg < 202:
-      return 'South'
+      return 'S'
     case deg >= 202 && deg < 225:
-      return 'South-Southwest'
+      return 'SSW'
     case deg >= 225 && deg < 247:
-      return 'Southwest'
+      return 'SW'
     case deg >= 247 && deg < 270:
-      return 'West-Southwest'
+      return 'WSW'
     case deg >= 270 && deg < 292:
-      return 'West'
+      return 'W'
     case deg >= 292 && deg < 315:
-      return 'West-Northwest'
+      return 'WNW'
     case deg >= 315 && deg < 337:
-      return 'Northwest'
+      return 'NW'
     case deg >= 337 && deg <= 360:
-      return 'North-Northwest'
+      return 'NNW'
     default:
-      return 'Direction Unknown'
+      return 'Unknown'
   }
 }
 
@@ -46,12 +46,12 @@ export const WindDirection: React.FC<WeatherDataProps> = ({ data }) => {
 
   const value = data.wind.deg
   const rotation = value + 180
-  const direction = getFullWindDirection(value)
+  const direction = getWindDirection(value)
 
   return (
-    <div className="flex">
+    <>
       <WiWindDeg size={24} style={{ transform: `rotate(${rotation}deg)` }} />
       <b>{direction}</b>
-    </div>
+    </>
   )
 }

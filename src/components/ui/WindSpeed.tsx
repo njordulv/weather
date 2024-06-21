@@ -8,6 +8,7 @@ import {
   WiHurricaneWarning,
   WiStormWarning,
   WiSandstorm,
+  WiNa,
 } from 'react-icons/wi'
 import { WeatherDataProps } from '@/interfaces'
 
@@ -64,13 +65,13 @@ export const WindSpeed: React.FC<WeatherDataProps> = ({ data }) => {
       description = 'Hurricane'
       break
     default:
-      icon = ''
+      icon = <WiNa size={30} />
       description = ''
   }
 
   return (
     <div className="flex flex-col items-center">
-      {icon} {description}
+      {icon} <b>{description}</b>
     </div>
   )
 }
