@@ -71,7 +71,10 @@ export const WindSpeed: React.FC<WeatherDataProps> = ({ data }) => {
 
   return (
     <div className="flex flex-col items-center">
-      {icon} <b>{description}</b>
+      {icon}{' '}
+      <span>
+        <b>{description}</b>
+      </span>
     </div>
   )
 }

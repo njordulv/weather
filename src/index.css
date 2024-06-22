@@ -115,6 +115,7 @@ h3 {
 .weather-list li span {
   display: flex;
   align-items: center;
+  text-align: center;
   gap: 3px;
 }
 

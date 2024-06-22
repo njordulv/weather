@@ -49,7 +49,7 @@ export const Forecast: React.FC = () => {
                         <Clouds data={item} iconSize={30} description={true} />
                       </span>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center">
                       <WiThermometer size={22} />
                       <b className="text-3xl">{Math.ceil(item.main.temp)} </b>
                       {isMetric ? (

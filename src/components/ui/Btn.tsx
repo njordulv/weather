@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { styled } from '@mui/material/styles'
 import Button from '@mui/material/Button'
 import { ButtonProps } from '@/interfaces'
@@ -17,11 +16,11 @@ const CustomButton = styled(Button)({
   borderRadius: 12,
   fontFamily: ['"Baloo 2"'].join(','),
   '&:hover': {
-    backgroundColor: '#D0EFF2',
+    backgroundColor: '#edf2ec',
     boxShadow: 'shadow-inner',
   },
   '&:focus': {
-    backgroundColor: '#D0EFF2',
+    backgroundColor: '#edf2ec',
     boxShadow: 'shadow-inner',
   },
 })
