@@ -43,7 +43,7 @@ export const WeatherData = () => {
   const visibility = (data.visibility / 1000).toFixed(1)
 
   return (
-    <Block className="col-span-12 row-span-2 lg:col-span-6 bg-white p-5 gap-3">
+    <Block className="col-span-12 row-span-2 lg:col-span-6 bg-white p-4 gap-3">
       {isError && <Error message={errorMessage} />}
       {isLoading ? (
         <Loading />

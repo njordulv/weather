@@ -10,12 +10,18 @@ export const getFormattedTime = (timestamp: number) => {
 export function formatDateTime(dateTime: string): string {
   const date = new Date(dateTime)
 
-  const options: Intl.DateTimeFormatOptions = {
+  const optionsWeekday: Intl.DateTimeFormatOptions = {
     weekday: 'long',
   }
 
-  const formattedDate = date.toLocaleString('en-US', options)
-  return formattedDate.replace(',', ',')
+  const optionsDay: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+  }
+
+  const weekday = date.toLocaleDateString('en-US', optionsWeekday)
+  const day = date.toLocaleDateString('en-US', optionsDay)
+
+  return `${weekday}, ${day}`
 }
 
 export function getDate() {

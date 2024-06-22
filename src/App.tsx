@@ -11,7 +11,7 @@ export const App = () => {
           <m.div
             initial="initial"
             animate="animate"
-            className="mx-auto flex flex-col sm:grid sm:grid-cols-12 gap-6 px-5"
+            className="mx-auto flex flex-col sm:grid sm:grid-cols-12 gap-8 px-5"
             transition={{
               staggerChildren: 1,
             }}

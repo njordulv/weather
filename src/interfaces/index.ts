@@ -73,6 +73,7 @@ export interface WeatherForecast {
 
 export interface WeatherDataWithForecast extends WeatherData {
   list: WeatherForecast[]
+  dt_txt: string
 }
 
 export interface WeatherDataProps {

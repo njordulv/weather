@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles'
 import Button from '@mui/material/Button'
 import { ButtonProps } from '@/interfaces'
 
-const BootstrapButton = styled(Button)({
+const CustomButton = styled(Button)({
   textTransform: 'none',
   fontSize: 18,
   padding: '6px 12px',
@@ -17,24 +17,19 @@ const BootstrapButton = styled(Button)({
   borderRadius: 12,
   fontFamily: ['"Baloo 2"'].join(','),
   '&:hover': {
-    backgroundColor: '#D3EFF7',
+    backgroundColor: '#D0EFF2',
     boxShadow: 'shadow-inner',
-  },
-  '&:active': {
-    backgroundColor: '#D3EFF7',
-    boxShadow: 'shadow-inner',
-    color: '#21baf2',
   },
   '&:focus': {
-    backgroundColor: '#D3EFF7',
+    backgroundColor: '#D0EFF2',
     boxShadow: 'shadow-inner',
   },
 })
 
 export const Btn: React.FC<ButtonProps> = ({ title, onClick, type }) => {
   return (
-    <BootstrapButton type={type} onClick={onClick} variant="contained">
+    <CustomButton type={type} onClick={onClick} variant="contained">
       {title}
-    </BootstrapButton>
+    </CustomButton>
   )
 }
