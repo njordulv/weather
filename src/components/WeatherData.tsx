@@ -3,12 +3,12 @@ import {
   WiSunrise,
   WiSunset,
   WiBarometer,
-  WiHorizonAlt,
   WiHumidity,
   WiStrongWind,
   WiCelsius,
   WiFahrenheit,
   WiSmallCraftAdvisory,
+  WiCloud,
 } from 'react-icons/wi'
 import { useWeather } from '@/hooks/useWeather'
 import {
@@ -40,7 +40,6 @@ export const WeatherData = () => {
   const tempActual = Math.ceil(data.main.temp)
   const tempFeels = Math.ceil(data.main.feels_like)
   const wind = data.wind.speed.toFixed(1)
-  const visibility = (data.visibility / 1000).toFixed(1)
 
   return (
     <Block className="col-span-12 row-span-2 lg:col-span-6 bg-white p-4 gap-3">
@@ -110,10 +109,10 @@ export const WeatherData = () => {
             </li>
             <li className="items-center flex-col">
               <span>
-                <WiHorizonAlt size={24} />
-                Horizon:
+                <WiCloud size={24} />
+                Clouds:
               </span>
-              <b>{visibility} km</b>
+              <b>{data.clouds.all} %</b>
             </li>
             <li className="items-center flex-col">
               <span>
