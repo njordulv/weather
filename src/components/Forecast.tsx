@@ -40,9 +40,9 @@ export const Forecast: React.FC = () => {
           data && (
             <>
               <h2>5-day Forecast</h2>
-              <ul className="weather-list grid-cols-1 text-left">
+              <ul className="forecast-list grid-cols-1 text-left">
                 {filteredData.map((item: WeatherDataWithForecast) => (
-                  <li key={item.dt_txt} className="flex gap-4 justify-between">
+                  <li key={item.dt_txt}>
                     <div>
                       <b>{formatDateTime(item.dt_txt)}</b>
                       <span>

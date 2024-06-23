@@ -71,22 +71,44 @@ h3 {
   padding: 32px;
 }
 
-.weather-list {
+.weather-list,
+.forecast-list {
   display: grid;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
 
-.weather-list li {
+.weather-list {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.forecast-list {
+  grid-template-columns: 1fr;
+}
+
+.weather-list li,
+.forecast-list li {
   position: relative;
   overflow: hidden;
   display: flex;
   border-radius: 10px;
-  padding: 10px 14px;
   z-index: 0;
 }
 
-.weather-list li:before {
+.weather-list li {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.forecast-list li {
+  justify-content: space-between;
+  padding: 10px 14px;
+}
+
+.weather-list li:before,
+.forecast-list li:before {
   content: '';
   position: absolute;
   z-index: 0;
@@ -99,7 +121,8 @@ h3 {
   background-color: rgba(255, 255, 255, 0.6);
   filter: blur(2px);
 }
-.weather-list li:after {
+.weather-list li:after,
+.forecast-list li:after {
   content: '';
   position: absolute;
   z-index: 1;
@@ -112,20 +135,23 @@ h3 {
   pointer-events: none;
 }
 
-.weather-list li span {
+.weather-list li span,
+.forecast-list li span {
   display: flex;
   align-items: center;
   text-align: center;
   gap: 3px;
 }
 
-.weather-list li em {
+.weather-list li em,
+.forecast-list li em {
   font-style: normal;
   font-weight: 500;
   text-transform: lowercase;
 }
 
-.weather-list li i {
+.weather-list li i,
+.forecast-list li i {
   font-size: 15px;
   font-style: normal;
   text-transform: lowercase;

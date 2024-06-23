@@ -63,8 +63,8 @@ export const WeatherData = () => {
               <Clouds data={data} iconSize={60} description={true} />
             </div>
           </div>
-          <ul className="weather-list sm:grid-cols-3 grid-cols-2">
-            <li className="items-center flex-col">
+          <ul className="weather-list">
+            <li>
               <span>
                 <WiThermometer size={24} />
                 Feels like:
@@ -74,19 +74,19 @@ export const WeatherData = () => {
                 {isMetric ? '°C' : '°F'}
               </b>
             </li>
-            <li className="items-center flex-col">
+            <li>
               <span>
                 <WiBarometer size={24} /> Pressure:
               </span>
               <b>{data.main.pressure} hPa</b>
             </li>
-            <li className="items-center flex-col">
+            <li>
               <span>
                 <WiHumidity size={24} /> Humidity:
               </span>
               <b>{data.main.humidity} %</b>
             </li>
-            <li className="items-center flex-col">
+            <li>
               <span>
                 <WiStrongWind size={24} />
                 Wind Speed:
@@ -96,7 +96,7 @@ export const WeatherData = () => {
                 <em>{isMetric ? 'm/s' : 'mph'}</em>
               </span>
             </li>
-            <li className="items-center flex-col">
+            <li>
               <span>
                 <WiSmallCraftAdvisory size={24} /> Direction:
               </span>
@@ -104,23 +104,23 @@ export const WeatherData = () => {
                 <WindDirection data={data} />
               </span>
             </li>
-            <li className="items-center flex-col">
+            <li>
               <WindSpeed data={data} />
             </li>
-            <li className="items-center flex-col">
+            <li>
               <span>
                 <WiCloud size={24} />
                 Clouds:
               </span>
               <b>{data.clouds.all} %</b>
             </li>
-            <li className="items-center flex-col">
+            <li>
               <span>
                 <WiSunrise size={24} /> Sunrise:
               </span>
               <b>{getFormattedTime(data.sys.sunrise)}</b>
             </li>
-            <li className="items-center flex-col">
+            <li>
               <span>
                 <WiSunset size={24} /> Sunset:
               </span>
