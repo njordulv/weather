@@ -22,7 +22,7 @@ export const SearchForm = () => {
     <Block className="col-span-12 row-span-2 flex flex-col justify-center">
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-[1fr] sm:grid-cols-[7fr_2fr_2fr] items-center gap-6"
+        className="grid grid-cols-[1fr] sm:grid-cols-[7fr_2fr_2fr] items-center sm:gap-6 gap-4"
       >
         <StyledInput
           value={searchCity}

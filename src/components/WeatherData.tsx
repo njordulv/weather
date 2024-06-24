@@ -48,14 +48,14 @@ export const WeatherData = () => {
         <Loading />
       ) : (
         <>
-          <div className="flex items-center justify-between">
+          <div className="weather-panel">
             <div>
               <h2 className="flex flex-col">
                 {data.name}, {data.sys.country}
               </h2>
               <h3>{getDate()}</h3>
             </div>
-            <div className="flex text-6xl">
+            <div className="flex text-6xl sm:justify-end">
               {tempActual}
               {isMetric ? <WiCelsius /> : <WiFahrenheit />}
             </div>
