@@ -1,17 +1,34 @@
 import { m, LazyMotion, domAnimation } from 'framer-motion'
+import Box from '@mui/material/Box'
 import { SearchForm } from '@/components/SearchForm'
 import { WeatherData } from '@/components/WeatherData'
 import { Forecast } from '@/components/Forecast'
 
 export const App = () => {
   return (
-    <main className="mx-auto max-w-[1170px] flex flex-col items-center justify-center gap-10 py-5 min-h-screen">
-      <section className="App">
+    <Box
+      component="main"
+      sx={{
+        maxWidth: 1170,
+        mx: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 10,
+        py: 5,
+        minHeight: '100vh',
+      }}
+    >
+      <Box
+        component="section"
+        sx={{ textTransform: 'capitalize', width: '100%' }}
+      >
         <LazyMotion features={domAnimation}>
           <m.div
             initial="initial"
             animate="animate"
-            className="mx-auto flex flex-col sm:grid sm:grid-cols-12 sm:gap-8 gap-5 px-5"
+            className="m-container"
             transition={{
               staggerChildren: 1,
             }}
@@ -21,7 +38,7 @@ export const App = () => {
             <Forecast />
           </m.div>
         </LazyMotion>
-      </section>
-    </main>
+      </Box>
+    </Box>
   )
 }

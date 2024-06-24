@@ -1,3 +1,4 @@
+import Stack from '@mui/material/Stack'
 import {
   WiDayLightWind,
   WiDayCloudyWindy,
@@ -70,11 +71,11 @@ export const WindSpeed: React.FC<WeatherDataProps> = ({ data }) => {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <Stack useFlexGap direction="column" alignItems="center">
       {icon}{' '}
       <span>
         <b>{description}</b>
       </span>
-    </div>
+    </Stack>
   )
 }

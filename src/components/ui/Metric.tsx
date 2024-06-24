@@ -1,6 +1,7 @@
+import Stack from '@mui/material/Stack'
+import Switch from '@mui/material/Switch'
 import { alpha, styled } from '@mui/material/styles'
 import { blue } from '@mui/material/colors'
-import Switch from '@mui/material/Switch'
 import { useWeatherStore, selectIsMetric } from '@/store/useWeatherStore'
 
 const MetricSwitch = styled(Switch)(({ theme }) => ({
@@ -22,9 +23,11 @@ export default function Metric() {
   const toggleMetric = useWeatherStore((state) => state.toggleMetric)
 
   return (
-    <div className="flex flex-col text-sm items-end">
+    <Stack useFlexGap flexDirection="column" alignItems="end">
       <MetricSwitch {...label} defaultChecked onClick={toggleMetric} />
-      <span>{isMetric ? 'Metric: °C, m/s' : 'Imperial: °F, mph'}</span>
-    </div>
+      <Stack component="span" sx={{ fontSize: '14px' }}>
+        {isMetric ? 'Metric: °C, m/s' : 'Imperial: °F, mph'}
+      </Stack>
+    </Stack>
   )
 }

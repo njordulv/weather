@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import { useWeatherStore, selectSearchCity } from '@/store/useWeatherStore'
 import { Block } from '@/components/ui/Block'
 import StyledInput from '@/components/ui/Input'
@@ -19,10 +20,22 @@ export const SearchForm = () => {
   }
 
   return (
-    <Block className="col-span-12 row-span-2 flex flex-col justify-center">
-      <form
+    <Block className="col-span-12 justify-center">
+      <Box
+        component="form"
         onSubmit={handleSubmit}
-        className="grid grid-cols-[1fr] sm:grid-cols-[7fr_2fr_2fr] items-center sm:gap-6 gap-4"
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: {
+            xs: '1fr',
+            sm: '7fr 2fr 2fr',
+          },
+          gap: {
+            xs: 2,
+            sm: 3,
+          },
+          alignItems: 'center',
+        }}
       >
         <StyledInput
           value={searchCity}
@@ -31,7 +44,7 @@ export const SearchForm = () => {
         />
         <Btn title="Search" type="submit" />
         <Metric />
-      </form>
+      </Box>
     </Block>
   )
 }

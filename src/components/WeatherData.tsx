@@ -42,7 +42,7 @@ export const WeatherData = () => {
   const wind = data.wind.speed.toFixed(1)
 
   return (
-    <Block className="col-span-12 row-span-2 lg:col-span-6 bg-white p-4 gap-3">
+    <Block className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-3 min-h-64">
       {isError && <Error message={errorMessage} />}
       {isLoading ? (
         <Loading />
