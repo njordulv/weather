@@ -42,14 +42,19 @@ export const Forecast: React.FC = () => {
     if (isError) return <Error message={errorMessage} />
     if (!data || !data.list) return <Error message={'No data available'} />
 
-    type ForecastItem = ForecastData['list'][0]
+    return null
+  }, [data, isLoading, isError, errorMessage])
 
-    const filteredData =
-      data.list.filter((_: any, index: number) => (index + 1) % 8 === 0) || []
+  type ForecastItem = ForecastData['list'][0]
 
-    return (
+  const filteredData =
+    data?.list.filter((_: any, index: number) => (index + 1) % 8 === 0) || []
+
+  return (
+    <Block className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-5 min-h-[528px] relative overflow-hidden">
+      <h2>5-day Forecast</h2>
+      {forecastContent}
       <Box component="ul" className="forecast-list">
-        <h2>5-day Forecast</h2>
         {filteredData.map((item: ForecastItem) => (
           <Stack component="li" key={item.dt_txt} flexDirection="row">
             <Stack>
@@ -79,12 +84,6 @@ export const Forecast: React.FC = () => {
           </Stack>
         ))}
       </Box>
-    )
-  }, [data, isLoading, isError, errorMessage, isMetric])
-
-  return (
-    <Block className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-5 min-h-[428px] relative overflow-hidden">
-      {forecastContent}
     </Block>
   )
 }

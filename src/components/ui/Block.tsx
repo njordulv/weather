@@ -7,7 +7,7 @@ export const Block: React.FC<BlockProps> = ({ className, ...rest }) => {
     <m.div
       variants={{
         initial: {
-          scale: 0.5,
+          scale: 0.8,
           opacity: 0,
         },
         animate: {

@@ -52,7 +52,7 @@ export const CurrentWeather = () => {
   }, [data, isLoading, isError, errorMessage])
 
   return (
-    <Block className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-3 min-h-[428px] relative overflow-hidden">
+    <Block className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden">
       {weatherContent}
       {data && (
         <>

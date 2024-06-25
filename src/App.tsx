@@ -30,7 +30,7 @@ export const App = () => {
             animate="animate"
             className="m-container"
             transition={{
-              staggerChildren: 1,
+              staggerChildren: 0.3,
             }}
           >
             <SearchForm />
