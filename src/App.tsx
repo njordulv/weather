@@ -1,7 +1,7 @@
 import { m, LazyMotion, domAnimation } from 'framer-motion'
 import Box from '@mui/material/Box'
 import { SearchForm } from '@/components/SearchForm'
-import { WeatherData } from '@/components/WeatherData'
+import { CurrentWeather } from '@/components/CurrentWeather'
 import { Forecast } from '@/components/Forecast'
 
 export const App = () => {
@@ -34,7 +34,7 @@ export const App = () => {
             }}
           >
             <SearchForm />
-            <WeatherData />
+            <CurrentWeather />
             <Forecast />
           </m.div>
         </LazyMotion>

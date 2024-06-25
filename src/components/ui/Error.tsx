@@ -1,22 +1,19 @@
-import { Box } from '@mui/material'
+import Stack from '@mui/material/Stack'
 
 interface ErrorProps {
-  message: string
+  message: string | null
 }
 
 export const Error: React.FC<ErrorProps> = ({ message }) => {
   return (
-    <Box
-      sx={{
-        gridColumn: { xs: 'span 12', sm: 'span 12' },
-        gridRow: 'span 2',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+    <Stack
+      useFlexGap
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      height="100%"
     >
       {message}
-    </Box>
+    </Stack>
   )
 }

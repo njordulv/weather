@@ -8,9 +8,12 @@ export const Loading: React.FC = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      height="100%"
+      position="absolute"
+      left={30}
+      top={15}
+      zIndex={1}
     >
-      <CircularProgress color="inherit" />
+      <CircularProgress color="inherit" size={18} />
     </Stack>
   )
 }
