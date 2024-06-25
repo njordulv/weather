@@ -56,30 +56,22 @@ export interface CloudsProps {
 }
 
 export interface ForecastData {
-  list: Array<{
-    dt_txt: string
-    main: {
-      temp: number
-      feels_like: number
-      temp_min: number
-      temp_max: number
-      pressure: number
-      humidity: number
-    }
-    weather: Array<{
-      id: number
-      main: string
-      description: string
-      icon: string
-    }>
-    clouds: {
-      all: number
-    }
-    wind: {
-      speed: number
-      deg: number
-    }
+  dt: number
+  dt_txt: string
+  main: {
+    temp: number
+    humidity: number
+  }
+  weather: Array<{
+    id: number
+    main: string
+    description: string
+    icon: string
   }>
+  wind: {
+    speed: number
+  }
+  list: ForecastData[]
 }
 
 export interface WeatherDataProps {

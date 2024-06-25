@@ -64,6 +64,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 18px;
   padding: 32px;
+  margin: 0 auto;
 }
 
 .m-container {
@@ -136,7 +137,7 @@ h3 {
   height: 20%;
   top: 0;
   background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-  border-radius: 20px 20px 100px 100px / 14px 14px 18px 18px;
+  border-radius: 10px 10px 100px 100px / 14px 14px 18px 18px;
   pointer-events: none;
 }
 

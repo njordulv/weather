@@ -46,15 +46,16 @@ export const CurrentWeather = () => {
   const weatherContent = useMemo(() => {
     if (isLoading) return <Loading />
     if (isError) return <Error message={errorMessage} />
-    if (!data || !data.main || !data.name || !data.sys || !data.sys.country)
-      return <Error message={'No data available'} />
+    if (!data || !data.main || !data.name || !data.sys || !data.sys.country) {
+      return <Error message={'No weather data available'} />
+    }
     return null
   }, [data, isLoading, isError, errorMessage])
 
   return (
     <Block className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden">
       {weatherContent}
-      {data && (
+      {data && data.main && data.name && data.sys && data.sys.country && (
         <>
           <div className="weather-panel">
             <div>
