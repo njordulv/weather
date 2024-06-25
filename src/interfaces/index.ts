@@ -78,11 +78,6 @@ export interface WeatherDataProps {
   data: WeatherData | null
 }
 
-export interface WeatherDataWithForecast extends WeatherData {
-  list: ForecastData[]
-  dt_txt: string
-}
-
 export interface WeatherState {
   data: WeatherData | null
   forecast: ForecastData | null

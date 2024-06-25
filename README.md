@@ -1,46 +1,104 @@
-# Getting Started with Create React App
+## Weather Forecast Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Description
 
-## Available Scripts
+Weather App is a web application for displaying weather forecasts, developed using React, TypeScript, Zustand, Material UI and TailwindCSS.
+The app provides users with up-to-date weather information, including current conditions and a 5-day forecast.
 
-In the project directory, you can run:
+### Features
 
-### `yarn start`
+- Display current weather for a selected city, state or region
+- 5-day weather forecast
+- Toggle between metric and imperial measurement systems
+- Responsive design for various devices
+- Optimized performance using React Hooks and memoization
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Technologies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Frontend library: React ^18
+- State Management: Zustand
+- UI design system: Material UI, TailwindCSS
+- Languages: TypeScript
+- Libraries: Framer Motion, Weather React Icons
+- API: OpenWeather
 
-### `yarn test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `yarn build`
+git clone https://github.com/njordulv/weather.git
+cd weather
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+yarn install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Set up the OpenWeather API key:
 
-### `yarn eject`
+- To ensure the app functions properly, you need to add a OpenWeather API key to the REACT_APP_API_KEY environment variable.
+  Create an .env file in the project's root directory with the following content:
+- REACT_APP_API_KEY = 'your_OpenWeather_api_key_here'
+- Replace 'your_OpenWeather_api_key_here' with your actual OpenWeather API key.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. Start the application:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+yarn start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Open your web browser and navigate to [http://localhost:3000](http://localhost:3000) to access the app.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+WEATHER/
+├── src/
+│ ├── components/
+│ │ ├── ui/
+│ │ │ ├── Block.tsx
+│ │ │ ├── Btn.tsx
+│ │ │ ├── Clouds.tsx
+│ │ │ ├── Error.tsx
+│ │ │ ├── Input.tsx
+│ │ │ ├── Loading.tsx
+│ │ │ ├── Metric.tsx
+│ │ │ ├── Parts.tsx
+│ │ │ ├── WindDirection.tsx
+│ │ │ └── WindSpeed.tsx
+│ │ ├── CurrentWeather.tsx
+│ │ ├── Forecast.tsx
+│ │ └── SearchForm.tsx
+│ ├── interfaces/
+│ │ └── index.ts
+│ ├── store/
+│ │ └── useWeatherStore.ts
+│ ├── utils/
+│ │ └── index.ts
+│ ├── App.tsx
+│ ├── index.css
+│ ├── index.tsx
+│ └── react-app-env.d.ts
+├── .env
+├── .gitignore
+├── config-overrides.js
+├── package.json
+├── postcss.config.js
+└── README.md
 
-## Learn More
+### API Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application uses [Weather API service name] to fetch weather data. Make sure you have a valid API key and it's properly configured in the project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Configuration
+
+No additional configuration is needed to run the application under normal circumstances. However, you may need to configure your GitHub API access token if you encounter rate limits.
+
+### Contributing
+
+Contributions are welcome! Please fork the repository and submit pull requests to the develop branch. For substantial changes, please open an issue first to discuss what you would like to change. Ensure to update tests as appropriate.
+
+## Screenshot
+
+![Weather App Screenshot](./screenshots/weather-app-screenshot.jpg)
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
+
+This project was bootstrapped with
+[Create React App](https://github.com/facebook/create-react-app).
