@@ -46,9 +46,17 @@ export interface WeatherData {
   cod: number
 }
 
+export interface CloudsProps {
+  data: {
+    description: string
+    icon: string
+  }
+  iconSize?: number
+  description?: boolean
+}
+
 export interface ForecastData {
   list: Array<{
-    dt: string
     dt_txt: string
     main: {
       temp: number

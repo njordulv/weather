@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback } from 'react'
+import { useEffect, useMemo, useCallback } from 'react'
 import { shallow } from 'zustand/shallow'
 import {
   WiThermometer,
@@ -66,7 +66,7 @@ export const CurrentWeather = () => {
               {isMetric ? <WiCelsius /> : <WiFahrenheit />}
             </div>
             <div className="flex flex-col justify-center items-end">
-              <Clouds data={data} iconSize={60} description={true} />
+              <Clouds data={data.weather[0]} iconSize={60} description={true} />
             </div>
           </div>
           <ul className="weather-list">

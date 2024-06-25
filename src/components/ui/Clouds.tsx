@@ -18,12 +18,7 @@ import {
   WiHurricane,
   WiHail,
 } from 'react-icons/wi'
-import { WeatherDataProps } from '@/interfaces'
-
-interface CloudsProps extends WeatherDataProps {
-  iconSize?: number
-  description?: boolean
-}
+import { CloudsProps } from '@/interfaces'
 
 const getWeatherIcon = (description: string, icon: string) => {
   const iconMap: { [key: string]: any } = {
@@ -106,10 +101,10 @@ export const Clouds: React.FC<CloudsProps> = ({
   iconSize = 24,
   description = false,
 }) => {
-  if (!data || !data.weather || !data.weather[0].description) return null
+  if (!data) return null
 
-  const weatherDescription = data.weather[0].description
-  const WeatherIcon = getWeatherIcon(weatherDescription, data.weather[0].icon)
+  const weatherDescription = data.description
+  const WeatherIcon = getWeatherIcon(weatherDescription, data.icon)
 
   return (
     <>

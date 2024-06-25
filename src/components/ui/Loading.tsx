@@ -9,8 +9,8 @@ export const Loading: React.FC = () => {
       alignItems="center"
       justifyContent="center"
       position="absolute"
-      left={30}
-      top={15}
+      right={17}
+      top={17}
       zIndex={1}
     >
       <CircularProgress color="inherit" size={18} />

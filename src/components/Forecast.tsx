@@ -21,7 +21,7 @@ import { ForecastData } from '@/interfaces'
 import { formatDateTime } from '@/utils'
 import { Loading } from '@/components/ui/Loading'
 import { Error } from '@/components/ui/Error'
-// import { Clouds } from '@/components/ui/Clouds'
+import { Clouds } from '@/components/ui/Clouds'
 
 export const Forecast: React.FC = () => {
   const fetchForecast = useWeatherStore((state) => state.fetchForecast)
@@ -55,7 +55,11 @@ export const Forecast: React.FC = () => {
             <Stack>
               <b>{formatDateTime(item.dt_txt)}</b>
               <span>
-                {/* <Clouds data={item} iconSize={30} description={true} /> */}
+                <Clouds
+                  data={item.weather[0]}
+                  iconSize={30}
+                  description={true}
+                />
               </span>
             </Stack>
             <Stack useFlexGap alignItems="center" flexDirection="row">
