@@ -14,7 +14,7 @@ const CustomButton = styled(Button)({
   borderWidth: 1,
   border: '1px solid #DAE2ED',
   borderRadius: 12,
-  fontFamily: ['"Baloo 2"'].join(','),
+  fontFamily: 'inherit',
   '&:hover': {
     backgroundColor: 'antiquewhite',
     boxShadow:

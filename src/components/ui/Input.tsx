@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles'
 
 const InputElement = styled('input')(({ theme }) => ({
   width: '100%',
-  fontFamily: '"Baloo 2", sans-serif',
+  fontFamily: 'inherit',
   fontWeight: 400,
   padding: '10px 14px',
   borderRadius: 12,
