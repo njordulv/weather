@@ -34,7 +34,21 @@ export const SearchForm = () => {
   }
 
   return (
-    <Block className="col-span-12 justify-center">
+    <Block
+      className="col-span-12 justify-center"
+      variants={{
+        initial: {
+          scale: 0.95,
+          opacity: 0,
+          y: -100,
+        },
+        animate: {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+        },
+      }}
+    >
       <Box
         component="form"
         onSubmit={handleSubmit}

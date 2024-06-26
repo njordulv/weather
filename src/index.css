@@ -9,16 +9,16 @@ body {
   line-height: 24px;
   color: #363636;
   background-image: linear-gradient(
-    180deg,
-    hsl(0deg 0% 99%) 0%,
-    hsl(32deg 48% 94%) 11%,
-    hsl(32deg 53% 89%) 22%,
-    hsl(32deg 54% 84%) 33%,
-    hsl(32deg 55% 79%) 44%,
-    hsl(32deg 55% 74%) 56%,
-    hsl(32deg 54% 70%) 67%,
-    hsl(32deg 54% 66%) 78%,
-    hsl(32deg 54% 61%) 89%,
+    183deg,
+    hsl(0deg 0% 100%) 0%,
+    hsl(28deg 65% 95%) 9%,
+    hsl(29deg 64% 91%) 19%,
+    hsl(29deg 62% 86%) 30%,
+    hsl(30deg 60% 81%) 41%,
+    hsl(30deg 59% 76%) 53%,
+    hsl(30deg 57% 72%) 65%,
+    hsl(31deg 56% 67%) 77%,
+    hsl(31deg 54% 62%) 89%,
     hsl(32deg 53% 57%) 100%
   );
 }
@@ -35,12 +35,12 @@ body {
   top: 0;
   display: block;
   position: absolute;
-  background-image: url('../public/city-back.svg');
+  background-image: url('../public/background.svg');
   background-size: contain;
   background-attachment: fixed;
-  background-position: bottom;
+  background-position: 0 103%;
   background-repeat: repeat-x;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 code {
@@ -187,7 +187,7 @@ h3 {
 
 .weather-panel {
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-columns: 5fr 4fr 3fr;
   grid-column-gap: 10px;
   grid-row-gap: 0px;
   align-items: center;

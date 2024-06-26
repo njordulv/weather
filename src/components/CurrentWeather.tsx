@@ -53,7 +53,23 @@ export const CurrentWeather = () => {
   }, [data, isLoading, isError, errorMessage])
 
   return (
-    <Block className="col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden">
+    <Block
+      className="col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden"
+      variants={{
+        initial: {
+          scale: 0.95,
+          opacity: 0,
+          x: -100,
+          y: 20,
+        },
+        animate: {
+          scale: 1,
+          opacity: 1,
+          x: 0,
+          y: 0,
+        },
+      }}
+    >
       {weatherContent}
       {data && data.main && data.name && data.sys && data.sys.country && (
         <>
@@ -62,7 +78,7 @@ export const CurrentWeather = () => {
               <TheCity name={data.name} country={data.sys.country} />
               <Today />
             </div>
-            <div className="flex text-7xl">
+            <div className="flex text-6xl sm:text-7xl">
               <Temperature temp={data.main.temp} />
               {isMetric ? <WiCelsius /> : <WiFahrenheit />}
             </div>

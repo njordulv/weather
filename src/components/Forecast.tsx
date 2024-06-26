@@ -51,7 +51,23 @@ export const Forecast: React.FC = () => {
   }, [data])
 
   return (
-    <Block className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-5 min-h-[528px] relative overflow-hidden">
+    <Block
+      className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-5 min-h-[528px] relative overflow-hidden"
+      variants={{
+        initial: {
+          scale: 0.95,
+          opacity: 0,
+          x: 100,
+          y: 20,
+        },
+        animate: {
+          scale: 1,
+          opacity: 1,
+          x: 0,
+          y: 0,
+        },
+      }}
+    >
       {forecastContent}
       {filteredData.length > 0 && <h2>5-day Forecast</h2>}
       <Box component="ul" className="forecast-list">
