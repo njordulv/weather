@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import { SearchForm } from '@/components/SearchForm'
 import { CurrentWeather } from '@/components/CurrentWeather'
 import { Forecast } from '@/components/Forecast'
+import { GithubLink } from '@/components/GithubLink'
 
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
           gap: 10,
           py: 5,
           minHeight: '100vh',
+          paddingTop: '30px',
         }}
       >
         <Box
@@ -37,6 +39,7 @@ export const App = () => {
               <SearchForm />
               <CurrentWeather />
               <Forecast />
+              <GithubLink />
             </m.div>
           </LazyMotion>
         </Box>

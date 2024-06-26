@@ -52,7 +52,7 @@ export const Forecast: React.FC = () => {
 
   return (
     <Block
-      className="col-span-12 row-span-2 lg:col-span-6 p-4 gap-5 min-h-[528px] relative overflow-hidden"
+      className="rounded-xl container col-span-12 row-span-2 lg:col-span-6 p-4 gap-5 min-h-[528px] relative overflow-hidden"
       variants={{
         initial: {
           scale: 0.95,
@@ -105,5 +105,3 @@ export const Forecast: React.FC = () => {
     </Block>
   )
 }
-
-export default Forecast

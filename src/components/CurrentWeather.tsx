@@ -54,7 +54,7 @@ export const CurrentWeather = () => {
 
   return (
     <Block
-      className="col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden"
+      className="rounded-xl container col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden"
       variants={{
         initial: {
           scale: 0.95,

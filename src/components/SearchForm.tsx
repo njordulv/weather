@@ -35,7 +35,7 @@ export const SearchForm = () => {
 
   return (
     <Block
-      className="col-span-12 justify-center"
+      className="rounded-xl container col-span-12 justify-center"
       variants={{
         initial: {
           scale: 0.95,
@@ -89,4 +89,3 @@ export const SearchForm = () => {
     </Block>
   )
 }
-export default SearchForm
