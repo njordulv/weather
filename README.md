@@ -46,40 +46,6 @@ yarn start
 
 5. Open your web browser and navigate to [http://localhost:3000](http://localhost:3000) to access the app.
 
-WEATHER/
-├── src/
-│ ├── components/
-│ │ ├── ui/
-│ │ │ ├── Block.tsx
-│ │ │ ├── Btn.tsx
-│ │ │ ├── Clouds.tsx
-│ │ │ ├── Error.tsx
-│ │ │ ├── Input.tsx
-│ │ │ ├── Loading.tsx
-│ │ │ ├── Metric.tsx
-│ │ │ ├── Parts.tsx
-│ │ │ ├── WindDirection.tsx
-│ │ │ └── WindSpeed.tsx
-│ │ ├── CurrentWeather.tsx
-│ │ ├── Forecast.tsx
-│ │ └── SearchForm.tsx
-│ ├── interfaces/
-│ │ └── index.ts
-│ ├── store/
-│ │ └── useWeatherStore.ts
-│ ├── utils/
-│ │ └── index.ts
-│ ├── App.tsx
-│ ├── index.css
-│ ├── index.tsx
-│ └── react-app-env.d.ts
-├── .env
-├── .gitignore
-├── config-overrides.js
-├── package.json
-├── postcss.config.js
-└── README.md
-
 ### API Usage
 
 The application uses [Weather API service name] to fetch weather data. Make sure you have a valid API key and it's properly configured in the project.
@@ -94,7 +60,7 @@ Contributions are welcome! Please fork the repository and submit pull requests t
 
 ## Screenshot
 
-![Weather App Screenshot](./screenshots/weather-app-screenshot.jpg)
+![Weather App Screenshot](./public/screenshot.jpg)
 
 ### License
 

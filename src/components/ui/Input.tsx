@@ -11,7 +11,7 @@ const InputElement = styled('input')(({ theme }) => ({
   color: grey[900],
   backgroundColor: 'white',
   border: `1px solid ${grey[200]}`,
-  boxShadow: theme.shadows[1],
+
   '&:hover': {
     borderColor: grey[400],
   },

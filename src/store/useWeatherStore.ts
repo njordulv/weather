@@ -10,7 +10,7 @@ export const useWeatherStore = createWithEqualityFn<WeatherState>()(
       (set, get) => ({
         data: null,
         forecast: null,
-        defaultCity: 'Kyiv',
+        defaultCity: 'New York',
         searchCity: '',
         isMetric: true,
         isLoading: false,

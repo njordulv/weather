@@ -16,7 +16,7 @@ export const SearchForm = () => {
     e.preventDefault()
 
     if (!searchCity.trim()) {
-      setError('Please enter a city name')
+      setError(`Hey, don't leave me blank!`)
       return
     } else {
       setError('')
@@ -55,7 +55,7 @@ export const SearchForm = () => {
         <StyledInput
           value={searchCity}
           onChange={handleChange}
-          placeholder="Enter city name"
+          placeholder="There are even more places to check out!"
         />
         <Btn title="Search" type="submit" />
         <Metric />
@@ -65,8 +65,8 @@ export const SearchForm = () => {
             left: 0,
             bottom: -20,
             display: 'flex',
-            fontSize: 13,
             fontFamily: 'inherit',
+            textTransform: 'none',
           }}
         >
           {error}

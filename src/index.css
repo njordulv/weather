@@ -10,17 +10,37 @@ body {
   color: #363636;
   background-image: linear-gradient(
     180deg,
-    hsl(196deg 89% 54%) 0%,
-    hsl(200deg 75% 64%) 15%,
-    hsl(202deg 58% 69%) 29%,
-    hsl(204deg 40% 72%) 43%,
-    hsl(207deg 19% 74%) 56%,
-    hsl(351deg 3% 75%) 68%,
-    hsl(21deg 26% 77%) 79%,
-    hsl(23deg 50% 78%) 88%,
-    hsl(24deg 75% 78%) 95%,
-    #ffc194 100%
+    hsl(0deg 0% 99%) 0%,
+    hsl(32deg 48% 94%) 11%,
+    hsl(32deg 53% 89%) 22%,
+    hsl(32deg 54% 84%) 33%,
+    hsl(32deg 55% 79%) 44%,
+    hsl(32deg 55% 74%) 56%,
+    hsl(32deg 54% 70%) 67%,
+    hsl(32deg 54% 66%) 78%,
+    hsl(32deg 54% 61%) 89%,
+    hsl(32deg 53% 57%) 100%
   );
+}
+
+.background {
+  position: relative;
+}
+
+.background:before {
+  content: '';
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  display: block;
+  position: absolute;
+  background-image: url('../public/city-back.svg');
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  opacity: 0.8;
 }
 
 code {
@@ -60,8 +80,10 @@ h3 {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
   border-radius: 18px;
   padding: 32px;
   margin: 0 auto;
@@ -124,7 +146,7 @@ h3 {
   bottom: 0;
   opacity: 1;
   z-index: -1;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.7);
   filter: blur(2px);
 }
 .weather-list li:after,
@@ -165,7 +187,7 @@ h3 {
 
 .weather-panel {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 3fr 2fr 1fr;
   grid-column-gap: 10px;
   grid-row-gap: 0px;
   align-items: center;
@@ -174,13 +196,15 @@ h3 {
 
 @media screen and (max-width: 640px) {
   .container {
-    padding: 20px;
+    padding: 18px;
   }
 
   .m-container {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .weather-list {
