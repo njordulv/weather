@@ -5,10 +5,10 @@ import { Block } from '@/components/ui/Block'
 export const GithubLink = () => {
   return (
     <Block
-      className="absolute right-4 bottom-2.5 w-6 h-6 p-0 rounded-full shadow-none"
+      className="absolute right-1 bottom-1 w-6 h-6 p-0 rounded-full shadow-none"
       variants={{
         initial: {
-          scale: 0.5,
+          scale: 0,
           opacity: 0,
           y: 40,
         },

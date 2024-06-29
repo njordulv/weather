@@ -41,7 +41,7 @@ export const CurrentWeather: React.FC = () => {
   if (!data || !data.main || !data.name || !data.sys || !data.sys.country) {
     return (
       <Block
-        className="rounded-xl container col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden"
+        className="rounded-xl container col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 lg:min-h-[528px] relative overflow-hidden"
         variants={{
           initial: {
             scale: 0.95,
@@ -73,7 +73,7 @@ export const CurrentWeather: React.FC = () => {
 
   return (
     <Block
-      className="rounded-xl container col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 min-h-[528px] relative overflow-hidden"
+      className="rounded-xl container col-span-12 row-span-2 justify-between lg:col-span-6 p-4 gap-3 relative overflow-hidden"
       variants={{
         initial: {
           scale: 0.95,
