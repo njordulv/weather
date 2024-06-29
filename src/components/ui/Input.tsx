@@ -2,7 +2,7 @@ import { forwardRef } from 'react'
 import { Input as BaseInput } from '@mui/base/Input'
 import { styled } from '@mui/material/styles'
 
-const InputElement = styled('input')(({ theme }) => ({
+const InputElement = styled('input')(() => ({
   width: '100%',
   fontFamily: 'inherit',
   fontWeight: 400,
@@ -36,14 +36,7 @@ export default function StyledInput(props: any) {
 }
 
 const grey = {
-  50: '#F3F6F9',
-  100: '#E5EAF2',
   200: '#DAE2ED',
-  300: '#C7D0DD',
   400: '#B0B8C4',
-  500: '#9DA8B7',
-  600: '#6B7A90',
-  700: '#434D5B',
-  800: '#303740',
   900: '#1C2025',
 }
