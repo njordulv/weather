@@ -8,22 +8,11 @@ import {
   WiSmallCraftAdvisory,
   WiCloud,
 } from 'react-icons/wi'
-import { getFormattedTime } from '@/utils'
 import { Temperature, Wind } from '@/components/ui/Parts'
 import { WindSpeed } from '@/components/ui/WindSpeed'
 import { WindDirection } from '@/components/ui/WindDirection'
-
-interface WeatherDetailsProps {
-  feels_like: number
-  pressure: number
-  humidity: number
-  windSpeed: number
-  windDirection: any
-  cloudiness: number
-  sunrise: number
-  sunset: number
-  isMetric: boolean
-}
+import { getFormattedTime } from '@/utils'
+import { WeatherDetailsProps } from '@/interfaces'
 
 export const WeatherDetails: React.FC<WeatherDetailsProps> = ({
   feels_like,

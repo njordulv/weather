@@ -1,14 +1,7 @@
 import { WiCelsius, WiFahrenheit } from 'react-icons/wi'
 import { Today, TheCity, Temperature } from '@/components/ui/Parts'
 import { Clouds } from '@/components/ui/Clouds'
-
-interface WeatherPanelProps {
-  name: string
-  country: string
-  temp: number
-  weather: any
-  isMetric: boolean
-}
+import { WeatherPanelProps } from '@/interfaces'
 
 export const WeatherPanel: React.FC<WeatherPanelProps> = ({
   name,

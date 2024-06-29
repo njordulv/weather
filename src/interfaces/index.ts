@@ -78,6 +78,26 @@ export interface WeatherDataProps {
   data: WeatherData | null
 }
 
+export interface WeatherPanelProps {
+  name: string
+  country: string
+  temp: number
+  weather: any
+  isMetric: boolean
+}
+
+export interface WeatherDetailsProps {
+  feels_like: number
+  pressure: number
+  humidity: number
+  windSpeed: number
+  windDirection: any
+  cloudiness: number
+  sunrise: number
+  sunset: number
+  isMetric: boolean
+}
+
 export interface WeatherState {
   data: WeatherData | null
   forecast: ForecastData | null
