@@ -7,8 +7,6 @@ import {
   WiBarometer,
   WiHumidity,
   WiStrongWind,
-  WiCelsius,
-  WiFahrenheit,
   WiSmallCraftAdvisory,
   WiCloud,
 } from 'react-icons/wi'
@@ -24,8 +22,8 @@ import { getFormattedTime } from '@/utils'
 import { Block } from '@/components/ui/Block'
 import { Loading } from '@/components/ui/Loading'
 import { Error } from '@/components/ui/Error'
-import { Today, TheCity, Temperature, Wind } from '@/components/ui/Parts'
-import { Clouds } from '@/components/ui/Clouds'
+import { Temperature, Wind } from '@/components/ui/Parts'
+import { WeatherPanel } from '@/components/ui/WeatherPanel'
 import { WindSpeed } from '@/components/ui/WindSpeed'
 import { WindDirection } from '@/components/ui/WindDirection'
 
@@ -73,19 +71,13 @@ export const CurrentWeather = () => {
       {weatherContent}
       {data && data.main && data.name && data.sys && data.sys.country && (
         <>
-          <div className="weather-panel">
-            <div>
-              <TheCity name={data.name} country={data.sys.country} />
-              <Today />
-            </div>
-            <div className="flex text-6xl sm:text-7xl">
-              <Temperature temp={data.main.temp} />
-              {isMetric ? <WiCelsius /> : <WiFahrenheit />}
-            </div>
-            <div className="flex flex-col justify-center items-end">
-              <Clouds data={data.weather[0]} iconSize={60} description={true} />
-            </div>
-          </div>
+          <WeatherPanel
+            name={data.name}
+            country={data.sys.country}
+            temp={data.main.temp}
+            weather={data.weather}
+            isMetric={isMetric}
+          />
           <ul className="weather-list">
             <li>
               <span>
