@@ -71,36 +71,52 @@ export const Forecast: React.FC = () => {
       {forecastContent}
       {filteredData.length > 0 && <h2>5-day Forecast</h2>}
       <Box component="ul" className="forecast-list">
-        {filteredData.map((item: ForecastData) => (
-          <Stack component="li" key={item.dt} flexDirection="row">
-            <Stack>
-              <Box component="b" position="relative" zIndex="2">
-                {formatDateTime(item.dt_txt)}
-              </Box>
-              <span>
-                <Clouds
-                  data={item.weather?.[0] ?? {}}
-                  iconSize={30}
-                  description={true}
-                />
-              </span>
+        {filteredData.map(
+          ({ dt, dt_txt, weather, main, wind }: ForecastData) => (
+            <Stack component="li" key={dt} flexDirection="row">
+              <Stack>
+                <Box component="b" position="relative" zIndex="2">
+                  {formatDateTime(dt_txt)}
+                </Box>
+                <span>
+                  <Clouds
+                    data={weather?.[0] ?? {}}
+                    iconSize={30}
+                    description={true}
+                  />
+                </span>
+              </Stack>
+              <Stack useFlexGap alignItems="center" flexDirection="row">
+                <WiThermometer size={22} />
+                <b className="text-3xl">{Math.ceil(main?.temp ?? 0)} </b>
+                {isMetric ? (
+                  <WiCelsius size={34} />
+                ) : (
+                  <WiFahrenheit size={34} />
+                )}
+              </Stack>
+              <Stack
+                useFlexGap
+                alignItems="center"
+                gap="5px"
+                flexDirection="row"
+              >
+                <WiStrongWind size={30} />
+                <b>{(wind?.speed ?? 0).toFixed(1)}</b>
+                <i>{isMetric ? 'm/s' : 'mph'}</i>
+              </Stack>
+              <Stack
+                useFlexGap
+                alignItems="center"
+                gap="5px"
+                flexDirection="row"
+              >
+                <WiHumidity size={28} />
+                {main?.humidity ?? 0} %
+              </Stack>
             </Stack>
-            <Stack useFlexGap alignItems="center" flexDirection="row">
-              <WiThermometer size={22} />
-              <b className="text-3xl">{Math.ceil(item.main?.temp ?? 0)} </b>
-              {isMetric ? <WiCelsius size={34} /> : <WiFahrenheit size={34} />}
-            </Stack>
-            <Stack useFlexGap alignItems="center" gap="5px" flexDirection="row">
-              <WiStrongWind size={30} />
-              <b>{(item.wind?.speed ?? 0).toFixed(1)}</b>
-              <i>{isMetric ? 'm/s' : 'mph'}</i>
-            </Stack>
-            <Stack useFlexGap alignItems="center" gap="5px" flexDirection="row">
-              <WiHumidity size={28} />
-              {item.main?.humidity ?? 0} %
-            </Stack>
-          </Stack>
-        ))}
+          )
+        )}
       </Box>
     </Block>
   )
