@@ -1,16 +1,6 @@
 import { useEffect, useMemo, useCallback } from 'react'
 import { shallow } from 'zustand/shallow'
 import {
-  WiThermometer,
-  WiSunrise,
-  WiSunset,
-  WiBarometer,
-  WiHumidity,
-  WiStrongWind,
-  WiSmallCraftAdvisory,
-  WiCloud,
-} from 'react-icons/wi'
-import {
   useWeatherStore,
   selectIsMetric,
   selectWeatherData,
@@ -18,14 +8,11 @@ import {
   selectIsError,
   selectErrorMessage,
 } from '@/store/useWeatherStore'
-import { getFormattedTime } from '@/utils'
 import { Block } from '@/components/ui/Block'
 import { Loading } from '@/components/ui/Loading'
 import { Error } from '@/components/ui/Error'
-import { Temperature, Wind } from '@/components/ui/Parts'
 import { WeatherPanel } from '@/components/ui/WeatherPanel'
-import { WindSpeed } from '@/components/ui/WindSpeed'
-import { WindDirection } from '@/components/ui/WindDirection'
+import { WeatherDetails } from '@/components/ui/WeatherDetails'
 
 export const CurrentWeather = () => {
   const fetchWeather = useWeatherStore((state) => state.fetchWeather)
@@ -78,70 +65,17 @@ export const CurrentWeather = () => {
             weather={data.weather}
             isMetric={isMetric}
           />
-          <ul className="weather-list">
-            <li>
-              <span>
-                <WiThermometer size={24} />
-                Feels like:
-              </span>
-              <b>
-                <Temperature temp={data.main.feels_like} />
-                {isMetric ? '°C' : '°F'}
-              </b>
-            </li>
-            <li>
-              <span>
-                <WiBarometer size={24} /> Pressure:
-              </span>
-              <b>{data.main.pressure} hPa</b>
-            </li>
-            <li>
-              <span>
-                <WiHumidity size={24} /> Humidity:
-              </span>
-              <b>{data.main.humidity} %</b>
-            </li>
-            <li>
-              <span>
-                <WiStrongWind size={24} />
-                Wind Speed:
-              </span>
-              <span>
-                <Wind temp={data.wind.speed} />
-                <em>{isMetric ? 'm/s' : 'mph'}</em>
-              </span>
-            </li>
-            <li>
-              <span>
-                <WiSmallCraftAdvisory size={24} /> Direction:
-              </span>
-              <span>
-                <WindDirection data={data} />
-              </span>
-            </li>
-            <li>
-              <WindSpeed data={data} />
-            </li>
-            <li>
-              <span>
-                <WiCloud size={24} />
-                Clouds:
-              </span>
-              <b>{data.clouds.all} %</b>
-            </li>
-            <li>
-              <span>
-                <WiSunrise size={24} /> Sunrise:
-              </span>
-              <b>{getFormattedTime(data.sys.sunrise)}</b>
-            </li>
-            <li>
-              <span>
-                <WiSunset size={24} /> Sunset:
-              </span>
-              <b>{getFormattedTime(data.sys.sunset)}</b>
-            </li>
-          </ul>
+          <WeatherDetails
+            feels_like={data.main.feels_like}
+            pressure={data.main.pressure}
+            humidity={data.main.humidity}
+            windSpeed={data.wind.speed}
+            windDirection={data}
+            cloudiness={data.clouds.all}
+            sunrise={data.sys.sunrise}
+            sunset={data.sys.sunset}
+            isMetric={isMetric}
+          />
         </>
       )}
     </Block>
