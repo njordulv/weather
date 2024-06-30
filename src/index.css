@@ -96,6 +96,12 @@ section {
   width: 100%;
 }
 
+input {
+  appearance: none;
+  -webkit-appearance: none;
+  font-size: 17px;
+}
+
 .container {
   position: relative;
   background-color: rgba(255, 255, 255, 0.35);
