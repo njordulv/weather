@@ -61,12 +61,16 @@ export const Forecast: React.FC = () => {
       }}
     >
       {forecastContent}
-      {filteredData.length > 0 && <h2>5-day Forecast</h2>}
-      <Box component="ul" className="forecast-list">
-        {filteredData.map((item: ForecastData) => (
-          <Item key={item.dt} {...item} />
-        ))}
-      </Box>
+      {filteredData.length > 0 && (
+        <>
+          <h2>5-day Forecast</h2>
+          <Box component="ul" className="forecast-list">
+            {filteredData.map((item: ForecastData) => (
+              <Item key={item.dt} {...item} />
+            ))}
+          </Box>
+        </>
+      )}
     </Block>
   )
 }

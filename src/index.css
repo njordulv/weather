@@ -221,6 +221,7 @@ input {
 @media screen and (max-width: 640px) {
   .container {
     padding: 18px;
+    min-height: 58px;
   }
 
   .m-container {
