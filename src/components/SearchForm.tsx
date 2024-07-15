@@ -69,7 +69,7 @@ export const SearchForm = () => {
         <StyledInput
           value={searchCity}
           onChange={handleChange}
-          placeholder="There are even more places to check out!"
+          placeholder="Check more places"
         />
         <Btn title="Search" type="submit" />
         <Metric />

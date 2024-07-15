@@ -99,7 +99,7 @@ section {
 input {
   appearance: none;
   -webkit-appearance: none;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .container {
@@ -284,11 +284,5 @@ input {
   }
   .weather-list {
     grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  input {
-    font-size: 13px;
   }
 }

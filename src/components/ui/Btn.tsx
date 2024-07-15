@@ -4,7 +4,7 @@ import { ButtonProps } from '@/interfaces'
 
 const CustomButton = styled(Button)({
   textTransform: 'none',
-  fontSize: 18,
+  fontSize: 20,
   padding: '6px 12px',
   lineHeight: 1.5,
   color: '#333',
