@@ -24,7 +24,7 @@ export default function Metric() {
 
   return (
     <Stack useFlexGap flexDirection="column" alignItems="end">
-      <MetricSwitch {...label} defaultChecked onClick={toggleMetric} />
+      <MetricSwitch {...label} checked={isMetric} onChange={toggleMetric} />
       <Stack component="span" sx={{ fontSize: '14px' }}>
         {isMetric ? 'Metric: °C, m/s' : 'Imperial: °F, mph'}
       </Stack>
